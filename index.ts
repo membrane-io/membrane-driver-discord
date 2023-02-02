@@ -256,7 +256,7 @@ export async function endpoint({ args: { path, query, headers, method, body } })
       }
       // type 1: Is a ping event from discord to verify the endpoint
       // type 2: It's received when someone uses a slash command
-      // TODO: handle other Interaction Types
+      // TODO: handle different types of Interaction Types
       switch (event.type) {
         case 1: {
           return JSON.stringify({
