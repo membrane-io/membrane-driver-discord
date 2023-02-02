@@ -14,15 +14,24 @@ export async function api(method: Method, path: string, query?: any, body?: stri
   const querystr = query && Object.keys(query).length ? `?${new URLSearchParams(query)}` : "";
 
   // Using curl's user-agent because Discord's API doesn't like Membrane's default
-  return await fetch(`https://discord.com/api/${path}${querystr}`, {
-    method,
-    body,
-    headers: {
-      Authorization: `Bot ${state.token}`,
-      "Content-Type": "application/json",
-      "User-Agent": "curl/7.85.0",
-    },
-  });
+  try {
+    const res = await fetch(`https://discord.com/api/${path}${querystr}`, {
+      method,
+      body,
+      headers: {
+        Authorization: `Bot ${state.token}`,
+        "Content-Type": "application/json",
+        "User-Agent": "curl/7.85.0",
+      },
+    });
+    // Throw an error if the response status is not valid
+    if (res.status >= 400 && res.status < 600) {
+      throw new Error(`The HTTP status of the reponse: ${res.status}`);
+    }
+    return res;
+  } catch (err) {
+    throw new Error(err);
+  }
 }
 
 export async function oauthRequest(method: string, url: string, reqBody: string, headers: any) {
@@ -31,6 +40,7 @@ export async function oauthRequest(method: string, url: string, reqBody: string,
   const body = await res.text();
   return { status, body };
 }
+
 
 export function verifyHeaders(body, headers) {
   // custom RamdomBytes function for tweetnacl
