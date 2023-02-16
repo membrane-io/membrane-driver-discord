@@ -102,7 +102,10 @@ export const MemberCollection = {
     const { id } = self.$argsAt(root.guilds.one);
     const res = await api("GET", `guilds/${id}/members`, { ...args });
 
-    return { items: await res.json(), next: null };
+    const items = await res.json()
+    // Get the last user id
+    const lastId = items[items.length - 1].user.id;
+    return { items, next: self.page({ limit: args.limit, after:lastId }) };
   },
 };
 
@@ -218,7 +221,7 @@ export const User = {
 export const Member = {
   gref({ obj, self }) {
     const { id } = self.$argsAt(root.guilds.one);
-    return root.guilds.one({ id }).members.one({ id: obj.URLSearchParams.id });
+    return root.guilds.one({ id }).members.one({ id: obj.user.id });
   },
 };
 
