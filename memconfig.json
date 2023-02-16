@@ -1,0 +1,763 @@
+{
+  "expressions": {
+    "guild": {
+      "description": "Guild",
+      "type": "text",
+      "searchIn": "https://discord.com",
+      "regex": "data-list-item-id=\"guildsnav___([0-9]{18})+"
+    },
+    "channel": {
+      "description": "Channel",
+      "type": "url",
+      "searchIn": "https://discord.com",
+      "regex": "https://discord.com/channels/([0-9]{18})+/([0-9]{18})+"
+    },
+    "user": {
+      "description": "User",
+      "type": "text",
+      "searchIn": "https://discord.com",
+      "regex": "/avatars/[0-9]+"
+    },
+    "message": {
+      "description": "Channel Message",
+      "type": "text",
+      "searchIn": "https://discord.com",
+      "regex": "id=\"chat-messages-[0-9]+-[0-9]+"
+    }
+  },
+  "schema": {
+    "types": [
+      {
+        "name": "Root",
+        "fields": [
+          {
+            "name": "guilds",
+            "type": "GuildCollection"
+          },
+          {
+            "name": "me",
+            "type": "User"
+          },
+          {
+            "name": "users",
+            "type": "UserCollection"
+          },
+          {
+            "name": "parse",
+            "type": "List",
+            "hints": {
+              "hidden": true
+            },
+            "ofType": {
+              "type": "Ref",
+              "ofType": "Guild"
+            },
+            "params": [
+              {
+                "name": "name",
+                "type": "String"
+              },
+              {
+                "name": "value",
+                "type": "String"
+              }
+            ]
+          }
+        ],
+        "actions": [
+          {
+            "name": "configure",
+            "type": "Void",
+            "params": [
+              {
+                "name": "CLIENT_ID",
+                "type": "String"
+              },
+              {
+                "name": "CLIENT_SECRET",
+                "type": "String"
+              },
+              {
+                "name": "PUBLIC_KEY",
+                "type": "String"
+              },
+              {
+                "name": "TOKEN",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "endpoint",
+            "type": "String",
+            "hints": {
+              "hidden": true
+            },
+            "params": [
+              {
+                "name": "method",
+                "type": "String"
+              },
+              {
+                "name": "body",
+                "type": "String"
+              },
+              {
+                "name": "path",
+                "type": "String"
+              },
+              {
+                "name": "query",
+                "type": "String"
+              },
+              {
+                "name": "headers",
+                "type": "String"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "MemberCollection",
+        "fields": [
+          {
+            "name": "one",
+            "type": "Member",
+            "params": [
+              {
+                "name": "id",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "page",
+            "type": "MemberPage",
+            "params": [
+              {
+                "name": "limit",
+                "type": "Int"
+              },
+              {
+                "name": "after",
+                "type": "String"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "MemberPage",
+        "fields": [
+          {
+            "name": "items",
+            "type": "List",
+            "ofType": "Member"
+          },
+          {
+            "name": "next",
+            "type": "Ref",
+            "ofType": "MemberPage"
+          }
+        ]
+      },
+      {
+        "name": "CommandCollection",
+        "fields": [
+          {
+            "name": "one",
+            "type": "Command",
+            "params": [
+              {
+                "name": "id",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "items",
+            "type": "List",
+            "ofType": "Command"
+          }
+        ]
+      },
+      {
+        "name": "UserCollection",
+        "fields": [
+          {
+            "name": "one",
+            "type": "User",
+            "params": [
+              {
+                "name": "id",
+                "type": "String"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "GuildCollection",
+        "fields": [
+          {
+            "name": "one",
+            "type": "Guild",
+            "params": [
+              {
+                "name": "id",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "items",
+            "type": "List",
+            "ofType": "Guild"
+          }
+        ]
+      },
+      {
+        "name": "Guild",
+        "fields": [
+          {
+            "name": "id",
+            "type": "String"
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "hints": {
+              "primary": true
+            }
+          },
+          {
+            "name": "icon",
+            "type": "String"
+          },
+          {
+            "name": "owner",
+            "type": "Boolean"
+          },
+          {
+            "name": "permissions",
+            "type": "Int"
+          },
+          {
+            "name": "features",
+            "type": "List",
+            "ofType": "String"
+          },
+          {
+            "name": "channels",
+            "type": "ChannelCollection"
+          },
+          {
+            "name": "commands",
+            "type": "CommandCollection"
+          },
+          {
+            "name": "members",
+            "type": "MemberCollection"
+          }
+        ],
+        "actions": [
+          {
+            "name": "createCommand",
+            "type": "Void",
+            "params": [
+              {
+                "name": "name",
+                "type": "String"
+              },
+              {
+                "name": "description",
+                "type": "String"
+              },
+              {
+                "name": "options",
+                "description": "JSON string of Application Command Option Structure",
+                "type": "String"
+              },
+              {
+                "name": "type",
+                "type": "Int"
+              }
+            ]
+          }
+        ],
+        "events": [
+          {
+            "name": "onSlashCommand",
+            "type": "SlashCommand"
+          }
+        ]
+      },
+      {
+        "name": "ChannelCollection",
+        "fields": [
+          {
+            "name": "one",
+            "type": "Channel",
+            "params": [
+              {
+                "name": "id",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "items",
+            "type": "List",
+            "ofType": "Channel"
+          }
+        ]
+      },
+      {
+        "name": "MessageCollection",
+        "fields": [
+          {
+            "name": "one",
+            "type": "Message",
+            "params": [
+              {
+                "name": "id",
+                "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "items",
+            "type": "List",
+            "ofType": "Message",
+            "params": [
+              {
+                "name": "limit",
+                "type": "Int"
+              },
+              {
+                "name": "around",
+                "type": "String"
+              },
+              {
+                "name": "before",
+                "type": "String"
+              },
+              {
+                "name": "after",
+                "type": "String"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Channel",
+        "fields": [
+          {
+            "name": "id",
+            "type": "String"
+          },
+          {
+            "name": "last_message_id",
+            "type": "String"
+          },
+          {
+            "name": "rate_limit_per_user",
+            "type": "Int"
+          },
+          {
+            "name": "name",
+            "type": "String",
+            "hints": {
+              "primary": true
+            }
+          },
+          {
+            "name": "type",
+            "type": "Int"
+          },
+          {
+            "name": "position",
+            "type": "Int"
+          },
+          {
+            "name": "flags",
+            "type": "Int"
+          },
+          {
+            "name": "nsfw",
+            "type": "Boolean"
+          },
+          {
+            "name": "parend_id",
+            "type": "String"
+          },
+          {
+            "name": "topic",
+            "type": "String"
+          },
+          {
+            "name": "guild_id",
+            "type": "String"
+          },
+          {
+            "name": "permissions_overwrites",
+            "type": "List",
+            "ofType": "String"
+          },
+          {
+            "name": "messages",
+            "type": "MessageCollection"
+          }
+        ],
+        "actions": [
+          {
+            "name": "sendMessage",
+            "type": "Void",
+            "params": [
+              {
+                "name": "content",
+                "description": "Message contents",
+                "type": "String"
+              },
+              {
+                "name": "payload_json",
+                "description": "JSON-encoded body of non-file params, only for multipart/form-data requests.",
+                "type": "String"
+              },
+              {
+                "name": "tts",
+                "type": "Boolean"
+              },
+              {
+                "name": "flags",
+                "type": "Int"
+              },
+              {
+                "name": "sticker_ids",
+                "description": "IDs of up to 3 stickers in the server to send in the message",
+                "type": "String"
+              },
+              {
+                "name": "components",
+                "description": "Array of components to include with the message",
+                "type": "String"
+              },
+              {
+                "name": "embeds",
+                "description": "Embedded rich content (up to 6000 characters)",
+                "type": "String"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Message",
+        "fields": [
+          {
+            "name": "id",
+            "type": "String"
+          },
+          {
+            "name": "type",
+            "type": "Int"
+          },
+          {
+            "name": "content",
+            "type": "String",
+            "hints": {
+              "primary": true
+            }
+          },
+          {
+            "name": "channel_id",
+            "type": "String"
+          },
+          {
+            "name": "pinned",
+            "type": "Boolean"
+          },
+          {
+            "name": "mention_everyone",
+            "type": "Boolean"
+          },
+          {
+            "name": "tts",
+            "type": "Boolean"
+          },
+          {
+            "name": "timestamp",
+            "type": "String"
+          },
+          {
+            "name": "edited_timestamp",
+            "type": "String"
+          },
+          {
+            "name": "flags",
+            "type": "Int"
+          },
+          {
+            "name": "author",
+            "type": "User"
+          },
+          {
+            "name": "attachments",
+            "type": "List",
+            "ofType": "String"
+          },
+          {
+            "name": "embeds",
+            "type": "List",
+            "ofType": "String"
+          },
+          {
+            "name": "mentions",
+            "type": "List",
+            "ofType": "User"
+          },
+          {
+            "name": "mention_roles",
+            "type": "List",
+            "ofType": "String"
+          },
+          {
+            "name": "reactions",
+            "type": "List",
+            "ofType": "Reaction"
+          }
+        ]
+      },
+      {
+        "name": "Member",
+        "fields": [
+          {
+            "name": "user",
+            "type": "User"
+          },
+          {
+            "name": "nick",
+            "hints": {
+              "primary": true
+            },
+            "type": "String"
+          },
+          {
+            "name": "roles",
+            "type": "List",
+            "ofType": "String"
+          },
+          {
+            "name": "joined_at",
+            "hints": {
+              "primary": true
+            },
+            "type": "String"
+          },
+          {
+            "name": "premium_since",
+            "type": "String"
+          },
+          {
+            "name": "deaf",
+            "type": "Boolean"
+          },
+          {
+            "name": "mute",
+            "type": "Boolean"
+          },
+          {
+            "name": "pending",
+            "type": "Boolean"
+          },
+          {
+            "name": "avatar",
+            "type": "String"
+          },
+          {
+            "name": "flags",
+            "type": "Int"
+          }
+        ]
+      },
+      {
+        "name": "User",
+        "fields": [
+          {
+            "name": "id",
+            "type": "String"
+          },
+          {
+            "name": "username",
+            "type": "String",
+            "hints": {
+              "primary": true
+            }
+          },
+          {
+            "name": "display_name",
+            "type": "String"
+          },
+          {
+            "name": "avatar",
+            "type": "String"
+          },
+          {
+            "name": "avatar_decoration",
+            "type": "String"
+          },
+          {
+            "name": "discriminator",
+            "type": "String"
+          },
+          {
+            "name": "public_flags",
+            "type": "Int"
+          },
+          {
+            "name": "bot",
+            "type": "Boolean"
+          }
+        ]
+      },
+      {
+        "name": "Reaction",
+        "fields": [
+          {
+            "name": "count",
+            "type": "Int"
+          },
+          {
+            "name": "me",
+            "type": "Boolean"
+          },
+          {
+            "name": "emoji",
+            "type": "Emoji"
+          }
+        ]
+      },
+      {
+        "name": "Command",
+        "fields": [
+          {
+            "name": "name",
+            "type": "String",
+            "hints": {
+              "primary": true
+            }
+          },
+          {
+            "name": "description",
+            "type": "String"
+          },
+          {
+            "name": "default_member_permissions",
+            "type": "String"
+          },
+          {
+            "name": "default_permission",
+            "type": "Boolean"
+          },
+          {
+            "name": "type",
+            "type": "Int"
+          },
+          {
+            "name": "nsfw",
+            "type": "Boolean"
+          },
+          {
+            "name": "options",
+            "type": "List",
+            "ofType": "String"
+          }
+        ]
+      },
+      {
+        "name": "Emoji",
+        "fields": [
+          {
+            "name": "id",
+            "type": "String"
+          },
+          {
+            "name": "user",
+            "type": "User"
+          },
+          {
+            "name": "name",
+            "type": "String"
+          },
+          {
+            "name": "animated",
+            "type": "Boolean"
+          },
+          {
+            "name": "available",
+            "type": "Boolean"
+          },
+          {
+            "name": "require_colons",
+            "type": "Boolean"
+          },
+          {
+            "name": "managed",
+            "type": "Boolean"
+          },
+          {
+            "name": "roles",
+            "type": "List",
+            "ofType": "String"
+          }
+        ]
+      },
+      {
+        "name": "SlashCommand",
+        "fields": [
+          {
+            "name": "user",
+            "type": "User"
+          },
+          {
+            "name": "application_id",
+            "type": "String"
+          },
+          {
+            "name": "token",
+            "type": "String"
+          },
+          {
+            "name": "options",
+            "type": "List",
+            "ofType": "CommandOption"
+          }
+        ]
+      },
+      {
+        "name": "CommandOption",
+        "fields": [
+          {
+            "name": "name",
+            "type": "String"
+          },
+          {
+            "name": "type",
+            "type": "String"
+          },
+          {
+            "name": "value",
+            "type": "String"
+          }
+        ]
+      }
+    ]
+  },
+  "dependencies": {
+    "http": "http:",
+    "endpoint": "sys-process:endpointUrl",
+    "chatgpt": "openai:models.one(id:\"text-davinci-003\")"
+  }
+}
