@@ -15,7 +15,7 @@ export const Root = {
   configure: async ({ args: { CLIENT_ID, CLIENT_SECRET, TOKEN, PUBLIC_KEY } }) => {
     state.token = TOKEN;
     state.publicKey = PUBLIC_KEY;
-    state.endpointUrl = await nodes.endpoint.$get();
+    state.endpointUrl = await nodes.endpoint;
 
     // Get and save the application id for commands endpoint
     const req = await api("GET", "oauth2/applications/@me");

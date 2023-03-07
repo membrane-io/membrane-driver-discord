@@ -62,6 +62,10 @@
                 "type": "String"
               }
             ]
+          },
+          {
+            "name": "status",
+            "type": "String"
           }
         ],
         "actions": [
