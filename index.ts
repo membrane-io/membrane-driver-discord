@@ -8,14 +8,16 @@ import { api, oauthRequest, verifyHeaders } from "./utils";
 export const Root = {
   status() {
     if (!state.token || !state.publicKey) {
-      return 'Please invoke the :configure action on your Membrane driver first.';
+      return "Please invoke the :configure action on your Membrane driver first.";
     }
     return "Ready";
   },
-  configure: async ({ args: { CLIENT_ID, CLIENT_SECRET, TOKEN, PUBLIC_KEY } }) => {
+  configure: async ({
+    args: { CLIENT_ID, CLIENT_SECRET, TOKEN, PUBLIC_KEY },
+  }) => {
     state.token = TOKEN;
     state.publicKey = PUBLIC_KEY;
-    state.endpointUrl = await nodes.endpoint;
+    state.endpointUrl = await nodes.endpoint.$get();
 
     // Get and save the application id for commands endpoint
     const req = await api("GET", "oauth2/applications/@me");
@@ -43,7 +45,9 @@ export const Root = {
       case "channel": {
         const url = new URL(value);
         const [, , guildId, channelId] = url.pathname.split("/");
-        return [root.guilds.one({ id: guildId }).channels.one({ id: channelId })];
+        return [
+          root.guilds.one({ id: guildId }).channels.one({ id: channelId }),
+        ];
       }
       case "user": {
         const [id] = value.match(/[0-9]+/g);
@@ -51,7 +55,11 @@ export const Root = {
       }
       case "message": {
         const [channelId, messageId] = value.match(/[0-9]+/g);
-        return [root.guilds.one.channels.one({ id: channelId }).messages.one({ id: messageId })];
+        return [
+          root.guilds.one.channels
+            .one({ id: channelId })
+            .messages.one({ id: messageId }),
+        ];
       }
     }
     return [];
@@ -61,7 +69,7 @@ export const Root = {
   me: async () => {
     const res = await api("GET", "users/@me");
     return await res.json();
-  }
+  },
 };
 
 export const UserCollection = {
@@ -87,7 +95,10 @@ export const CommandCollection = {
     const { id } = self.$argsAt(root.guilds.one);
 
     // Get the commands
-    const res = await api("GET", `applications/${state.applicationId}/guilds/${id}/commands`);
+    const res = await api(
+      "GET",
+      `applications/${state.applicationId}/guilds/${id}/commands`
+    );
     return await res.json();
   },
 };
@@ -102,10 +113,10 @@ export const MemberCollection = {
     const { id } = self.$argsAt(root.guilds.one);
     const res = await api("GET", `guilds/${id}/members`, { ...args });
 
-    const items = await res.json()
+    const items = await res.json();
     // Get the last user id
     const lastId = items[items.length - 1].user.id;
-    return { items, next: self.page({ limit: args.limit, after:lastId }) };
+    return { items, next: self.page({ limit: args.limit, after: lastId }) };
   },
 };
 
@@ -164,7 +175,7 @@ export const Guild = {
       JSON.stringify({
         name: args.name,
         description: args.description,
-        options: JSON.parse(args.options) || [],
+        options: JSON.parse(args.options || "[]"),
         type: args.type || 1,
       })
     );
@@ -193,8 +204,8 @@ export const Channel = {
       null,
       JSON.stringify({
         content: args.content,
-        components: JSON.parse(args.components),
-        embeds: JSON.parse(args.embeds),
+        components: JSON.parse(args.components || "[]"),
+        embeds: JSON.parse(args.embeds || "[]"),
       })
     );
     return await res.json();
@@ -225,7 +236,9 @@ export const Member = {
   },
 };
 
-export async function endpoint({ args: { path, query, headers, method, body } }) {
+export async function endpoint({
+  args: { path, query, headers, method, body },
+}) {
   switch (path) {
     case "/": {
       return '<a href="/auth">Add bot to Discord server</a>';
@@ -233,7 +246,7 @@ export async function endpoint({ args: { path, query, headers, method, body } })
     case "/auth":
     case "/auth/": {
       if (!state.auth) {
-        return "Please invoke configure first";
+        return "Please invoke `:configure` first";
       }
       const url = state.auth.code.getUri({
         query: { permissions: 8, scope: "bot" },
@@ -243,7 +256,7 @@ export async function endpoint({ args: { path, query, headers, method, body } })
     case "/callback": {
       state.accessToken = await state.auth.code.getToken(`${path}?${query}`);
       if (state.accessToken?.accessToken) {
-        return 'Bot has been added to server - <a href="/auth">Add bot to another Discord server</a>'
+        return 'Bot has been added to server - <a href="/auth">Add bot to another Discord server</a>';
       }
       return "There was an issue acquiring the access token. Check the logs.";
     }
@@ -260,8 +273,10 @@ export async function endpoint({ args: { path, query, headers, method, body } })
       // type 1: Is a ping event from discord to verify the endpoint
       // type 2: It's received when someone uses a slash command
       // TODO: handle different types of Interaction Types
+      const PING = 1;
+      const COMMAND = 2;
       switch (event.type) {
-        case 1: {
+        case PING: {
           return JSON.stringify({
             status: 200,
             headers: {
@@ -270,11 +285,11 @@ export async function endpoint({ args: { path, query, headers, method, body } })
             body: JSON.stringify({ type: 1 }),
           });
         }
-        case 2: {
+        case COMMAND: {
           const { token, member, data, guild_id, application_id } = event;
           await root.guilds.one({ id: guild_id }).onSlashCommand.$emit({
-            options: data.options,
-            user: member.user,
+            options: JSON.stringify(data.options) as any,
+            user: member.user.username,
             token,
             application_id,
           });
@@ -284,7 +299,13 @@ export async function endpoint({ args: { path, query, headers, method, body } })
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              type: 5,
+              type: 4,
+              data: {
+                tts: false,
+                content: "Command received!",
+                embeds: [],
+                allowed_mentions: { parse: [] },
+              },
             }),
           });
         }
