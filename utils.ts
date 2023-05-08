@@ -1,17 +1,26 @@
-import fetch from "node-fetch";
 import nacl from "tweetnacl";
 import rbjs from "random-bytes-js";
 import { state } from "membrane";
 type Method = "GET" | "POST" | "PUT" | "DELETE" | "PATCH";
 
-export async function api(method: Method, path: string, query?: any, body?: string) {
+export async function api(
+  method: Method,
+  path: string,
+  query?: any,
+  body?: string
+) {
   if (!state.token) {
-    throw new Error("You must authenticated to use this API. Visit the program's endpoint");
+    throw new Error(
+      "You must authenticated to use this API. Visit the program's endpoint"
+    );
   }
   if (query) {
-    Object.keys(query).forEach((key) => (query[key] === undefined ? delete query[key] : {}));
+    Object.keys(query).forEach((key) =>
+      query[key] === undefined ? delete query[key] : {}
+    );
   }
-  const querystr = query && Object.keys(query).length ? `?${new URLSearchParams(query)}` : "";
+  const querystr =
+    query && Object.keys(query).length ? `?${new URLSearchParams(query)}` : "";
 
   // Using curl's user-agent because Discord's API doesn't like Membrane's default
   try {
@@ -34,13 +43,17 @@ export async function api(method: Method, path: string, query?: any, body?: stri
   }
 }
 
-export async function oauthRequest(method: string, url: string, reqBody: string, headers: any) {
+export async function oauthRequest(
+  method: "get" | "post" | "put" | "delete",
+  url: string,
+  reqBody: string,
+  headers: any
+) {
   const res = await fetch(url, { body: reqBody.toString(), headers, method });
   const status = res.status;
   const body = await res.text();
   return { status, body };
 }
-
 
 export function verifyHeaders(body, headers) {
   // custom RamdomBytes function for tweetnacl
