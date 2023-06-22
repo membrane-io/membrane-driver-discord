@@ -15,6 +15,32 @@
   },
   "imports": [
     {
+      "name": "sys-process",
+      "schema": {
+        "types": [
+          {
+            "name": "Root",
+            "description": "",
+            "actions": [],
+            "fields": [
+              {
+                "name": "endpointUrl",
+                "description": "Gets the program's own endpoint URL",
+                "type": "String",
+                "params": [],
+                "hints": {}
+              }
+            ],
+            "events": []
+          }
+        ],
+        "imports": []
+      },
+      "source": {
+        "Program": "tbd"
+      }
+    },
+    {
       "name": "openai",
       "schema": {
         "types": [
@@ -205,44 +231,44 @@
                     "name": "learning_rate_multiplier",
                     "description": "",
                     "type": "Float",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "prompt_loss_weight",
                     "description": "",
                     "type": "Float",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "compute_classification_metrics",
                     "description": "",
                     "type": "Boolean",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "classification_n_classes",
                     "description": "",
                     "type": "Int",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "classification_positive_class",
                     "description": "",
                     "type": "String",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "classification_betas",
                     "description": "",
                     "type": "List",
                     "ofType": "Float",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "suffix",
                     "description": "",
                     "type": "String",
-                    "optional": false
+                    "optional": true
                   }
                 ],
                 "hints": {}
@@ -301,85 +327,85 @@
                     "name": "max_tokens",
                     "description": "",
                     "type": "Int",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "temperature",
                     "description": "",
                     "type": "Float",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "suffix",
                     "description": "",
                     "type": "String",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "top_p",
                     "description": "",
                     "type": "Float",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "n",
                     "description": "",
                     "type": "Int",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "stream",
                     "description": "",
                     "type": "Boolean",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "logprobs",
                     "description": "",
                     "type": "Int",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "echo",
                     "description": "",
                     "type": "Boolean",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "stop",
                     "description": "",
                     "type": "String",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "presence_penalty",
                     "description": "",
                     "type": "Float",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "frequency_penalty",
                     "description": "",
                     "type": "Float",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "best_of",
                     "description": "",
                     "type": "Int",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "logit_bias",
                     "description": "",
                     "type": "String",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "user",
                     "description": "",
                     "type": "String",
-                    "optional": false
+                    "optional": true
                   }
                 ],
                 "hints": {}
@@ -399,13 +425,13 @@
                     "name": "instruction",
                     "description": "",
                     "type": "String",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "temperature",
                     "description": "",
                     "type": "Float",
-                    "optional": false
+                    "optional": true
                   }
                 ],
                 "hints": {}
@@ -425,67 +451,67 @@
                     "name": "functions",
                     "description": "",
                     "type": "String",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "temperature",
                     "description": "",
                     "type": "Float",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "top_p",
                     "description": "",
                     "type": "Float",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "n",
                     "description": "",
                     "type": "Int",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "stream",
                     "description": "",
                     "type": "String",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "stop",
                     "description": "",
                     "type": "String",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "max_tokens",
                     "description": "",
                     "type": "Int",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "presence_penalty",
                     "description": "",
                     "type": "Float",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "frequency_penalty",
                     "description": "",
                     "type": "Float",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "logit_bias",
                     "description": "",
                     "type": "String",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "user",
                     "description": "",
                     "type": "String",
-                    "optional": false
+                    "optional": true
                   }
                 ],
                 "hints": {}
@@ -505,13 +531,13 @@
                     "name": "inputs",
                     "description": "",
                     "type": "String",
-                    "optional": false
+                    "optional": true
                   },
                   {
                     "name": "user",
                     "description": "",
                     "type": "String",
-                    "optional": false
+                    "optional": true
                   }
                 ],
                 "hints": {}
@@ -914,7 +940,7 @@
                     "name": "purpose",
                     "description": "",
                     "type": "String",
-                    "optional": false
+                    "optional": true
                   }
                 ],
                 "hints": {}
@@ -1987,32 +2013,6 @@
             }
           }
         ]
-      },
-      "source": {
-        "Program": "tbd"
-      }
-    },
-    {
-      "name": "sys-process",
-      "schema": {
-        "types": [
-          {
-            "name": "Root",
-            "description": "",
-            "actions": [],
-            "fields": [
-              {
-                "name": "endpointUrl",
-                "description": "Gets the program's own endpoint URL",
-                "type": "String",
-                "params": [],
-                "hints": {}
-              }
-            ],
-            "events": []
-          }
-        ],
-        "imports": []
       },
       "source": {
         "Program": "tbd"
