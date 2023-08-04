@@ -781,7 +781,6 @@
   },
   "dependencies": {
     "http": "http:",
-    "endpoint": "sys-process:endpointUrl",
-    "chatgpt": "openai:models.one(id:\"text-davinci-003\")"
+    "endpoint": "sys-process:endpointUrl"
   }
 }
