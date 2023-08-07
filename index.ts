@@ -12,11 +12,9 @@ export const Root = {
     }
     return "Ready";
   },
-  configure: async ({
-    args: { CLIENT_ID, CLIENT_SECRET, TOKEN, PUBLIC_KEY },
-  }) => {
-    state.token = TOKEN;
-    state.publicKey = PUBLIC_KEY;
+  configure: async ({ args: { clientId, clientSecret, token, publicKey } }) => {
+    state.token = token;
+    state.publicKey = publicKey;
     state.endpointUrl = await nodes.endpoint.$get();
 
     // Get and save the application id for commands endpoint
@@ -27,8 +25,8 @@ export const Root = {
     // set up oauth2 for join to Discord servers
     state.auth = new ClientOAuth2(
       {
-        clientId: CLIENT_ID,
-        clientSecret: CLIENT_SECRET,
+        clientId: clientId,
+        clientSecret: clientSecret,
         accessTokenUri: "https://discord.com/api/oauth2/token",
         authorizationUri: "https://discord.com/api/oauth2/authorize",
         redirectUri: `${state.endpointUrl}/callback`,
@@ -69,6 +67,9 @@ export const Root = {
   me: async () => {
     const res = await api("GET", "users/@me");
     return await res.json();
+  },
+  followUpWebhook: async ({ args: { application_id, token, message }}) => {
+    await api("POST", `webhooks/${application_id}/${token}`, {}, JSON.stringify(message));
   },
 };
 
@@ -175,7 +176,7 @@ export const Guild = {
       JSON.stringify({
         name: args.name,
         description: args.description,
-        options: JSON.parse(args.options || "[]"),
+        options: args.options || [],
         type: args.type || 1,
       })
     );
@@ -188,6 +189,15 @@ export const Command = {
     const { id } = self.$argsAt(root.guilds.one);
     return root.guilds.one({ id }).commands.one({ id: obj.id });
   },
+  delete: async ({ self, obj }) => {
+    const { id: guildId } = self.$argsAt(root.guilds.one);
+    const { id } = self.$argsAt(root.guilds.one.commands.one);
+
+    const res = await api(
+      "DELETE",
+      `applications/${state.applicationId}/guilds/${guildId}/commands/${id}`
+    );
+  }
 };
 
 export const Channel = {
@@ -298,14 +308,9 @@ export async function endpoint({
             headers: {
               "Content-Type": "application/json",
             },
+            // ACK an interaction and edit a response later, the user sees a loading state.
             body: JSON.stringify({
-              type: 4,
-              data: {
-                tts: false,
-                content: "Command received!",
-                embeds: [],
-                allowed_mentions: { parse: [] },
-              },
+              type: 5,
             }),
           });
         }

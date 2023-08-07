@@ -74,24 +74,24 @@
             "type": "Void",
             "params": [
               {
-                "name": "CLIENT_ID",
+                "name": "clientId",
                 "type": "String",
-                "optional": false
+                "optional": true
               },
               {
-                "name": "CLIENT_SECRET",
+                "name": "clientSecret",
                 "type": "String",
-                "optional": false
+                "optional": true
               },
               {
-                "name": "PUBLIC_KEY",
+                "name": "publicKey",
                 "type": "String",
-                "optional": false
+                "optional": true
               },
               {
-                "name": "TOKEN",
+                "name": "token",
                 "type": "String",
-                "optional": false
+                "optional": true
               }
             ]
           },
@@ -123,6 +123,24 @@
               {
                 "name": "headers",
                 "type": "String"
+              }
+            ]
+          },
+          {
+            "name": "followUpWebhook",
+            "type": "Void",
+            "params": [
+              {
+                "name": "application_id",
+                "type": "String"
+              },
+              {
+                "name": "token",
+                "type": "String"
+              },
+              {
+                "name": "message",
+                "type": "Json"
               }
             ]
           }
@@ -290,7 +308,7 @@
               {
                 "name": "options",
                 "description": "JSON string of Application Command Option Structure",
-                "type": "String",
+                "type": "Json",
                 "optional": true
               },
               {
@@ -698,6 +716,12 @@
             "name": "options",
             "type": "List",
             "ofType": "String"
+          }
+        ],
+        "actions": [
+          {
+            "name": "delete",
+            "type": "Void"
           }
         ]
       },

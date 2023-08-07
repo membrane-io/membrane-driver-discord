@@ -44,7 +44,7 @@ export async function api(
 }
 
 export async function oauthRequest(
-  method: "get" | "post" | "put" | "delete",
+  method: string,
   url: string,
   reqBody: string,
   headers: any
