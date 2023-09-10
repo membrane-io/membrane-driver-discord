@@ -4,17 +4,12 @@ This [driver](https://membrane.io) lets you interact with the Discord API throug
 
 To setup Discord driver follow steps:
 
-1: Create an [application](https://discord.com/developers/applications)
-
-2: Create a bot and Get the [bot token](https://discord.com/developers/applications)
-
-3: Get OAuth2 [client id and client Secret](https://discord.com/developers/applications)
-
-4: Add SERVER MEMBERS INTENT and MESSAGE CONTENT INTENT to your bot in Privileged Gateway Intents.
-
-5: Invoke :configure action with the bot token, client id and client secret.
-
-6: Visit the Endpoint URL to add the bot to your server's.
+1. Create an [application](https://discord.com/developers/applications)
+1. Create a bot and Get the [bot token](https://discord.com/developers/applications)
+1. Get OAuth2 [client id and client Secret](https://discord.com/developers/applications)
+1. Add SERVER MEMBERS INTENT and MESSAGE CONTENT INTENT to your bot in Privileged Gateway Intents.
+1. Invoke :configure action with the bot token, client id and client secret.
+1. Visit the Endpoint URL to add the bot to your server's.
 
 optional: You can optionally configure an interactions endpoint to receive interactions (outgoing webhooks).
 
