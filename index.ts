@@ -8,7 +8,7 @@ import { api, oauthRequest, verifyHeaders } from "./utils";
 export const Root = {
   status() {
     if (!state.token || !state.publicKey) {
-      return "Please invoke the :configure action on your Membrane driver first.";
+      return `Please follow [these instructions](https://github.com/membrane-io/membrane-driver-discord) to setup your bot`;
     }
     return "Ready";
   },
@@ -68,8 +68,13 @@ export const Root = {
     const res = await api("GET", "users/@me");
     return await res.json();
   },
-  followUpWebhook: async ({ args: { application_id, token, message }}) => {
-    await api("POST", `webhooks/${application_id}/${token}`, {}, JSON.stringify(message));
+  followUpWebhook: async ({ args: { application_id, token, message } }) => {
+    await api(
+      "POST",
+      `webhooks/${application_id}/${token}`,
+      {},
+      JSON.stringify(message)
+    );
   },
 };
 
@@ -197,7 +202,7 @@ export const Command = {
       "DELETE",
       `applications/${state.applicationId}/guilds/${guildId}/commands/${id}`
     );
-  }
+  },
 };
 
 export const Channel = {
