@@ -1,6 +1,6 @@
-# Discord Driver
+# Discord Driver for Membrane
 
-This [driver](https://membrane.io) lets you interact with the Discord API through your Membrane graph.
+This [Membrane](https://membrane.io) driver lets you interact with the Discord API through your Membrane graph.
 
 To setup Discord driver follow steps:
 
