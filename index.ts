@@ -12,7 +12,7 @@ export const Root = {
     }
     return "Ready";
   },
-  configure: async ({ args: { clientId, clientSecret, token, publicKey } }) => {
+  configure: async ({ clientId, clientSecret, token, publicKey }) => {
     state.token = token;
     state.publicKey = publicKey;
     state.endpointUrl = await nodes.endpoint.$get();
@@ -34,7 +34,7 @@ export const Root = {
       oauthRequest
     );
   },
-  parse({ self, args: { name, value } }) {
+  parse({ name, value }, { self }) {
     switch (name) {
       case "guild": {
         const [id] = value.match(/([0-9]{18})/g);
@@ -68,7 +68,7 @@ export const Root = {
     const res = await api("GET", "users/@me");
     return await res.json();
   },
-  followUpWebhook: async ({ args: { application_id, token, message } }) => {
+  followUpWebhook: async ({ application_id, token, message }) => {
     await api(
       "POST",
       `webhooks/${application_id}/${token}`,
@@ -79,14 +79,14 @@ export const Root = {
 };
 
 export const UserCollection = {
-  one: async ({ args: { id } }) => {
+  one: async ({ id }) => {
     const res = await api("GET", `users/${id}`);
     return await res.json();
   },
 };
 
 export const CommandCollection = {
-  one: async ({ self, args: { id } }) => {
+  one: async ({ id }, { self }) => {
     const { id: guildId } = self.$argsAt(root.guilds.one);
 
     // Get the commands
@@ -97,7 +97,7 @@ export const CommandCollection = {
     return await res.json();
   },
 
-  items: async ({ self }) => {
+  items: async (_, { self }) => {
     const { id } = self.$argsAt(root.guilds.one);
 
     // Get the commands
@@ -110,12 +110,12 @@ export const CommandCollection = {
 };
 
 export const MemberCollection = {
-  one: async ({ self, args: { id } }) => {
+  one: async ({ id }, { self }) => {
     const { id: guildId } = self.$argsAt(root.guilds.one);
     const res = await api("GET", `guilds/${guildId}/members/${id}`);
     return await res.json();
   },
-  page: async ({ self, args }) => {
+  page: async (args, { self }) => {
     const { id } = self.$argsAt(root.guilds.one);
     const res = await api("GET", `guilds/${id}/members`, { ...args });
 
@@ -127,7 +127,7 @@ export const MemberCollection = {
 };
 
 export const GuildCollection = {
-  one: async ({ args: { id } }) => {
+  one: async ({ id }) => {
     const res = await api("GET", `guilds/${id}`);
     return await res.json();
   },
@@ -139,12 +139,12 @@ export const GuildCollection = {
 };
 
 export const ChannelCollection = {
-  one: async ({ args: { id } }) => {
+  one: async ({ id }) => {
     const res = await api("GET", `channels/${id}`);
     return await res.json();
   },
 
-  items: async ({ self }) => {
+  items: async (_, { self }) => {
     const { id } = self.$argsAt(root.guilds.one);
     const res = await api("GET", `guilds/${id}/channels`);
     return await res.json();
@@ -152,13 +152,13 @@ export const ChannelCollection = {
 };
 
 export const MessageCollection = {
-  one: async ({ self, args: { id } }) => {
+  one: async ({ id }, { self }) => {
     const { id: channelId } = self.$argsAt(root.guilds.one.channels.one);
     const res = await api("GET", `channels/${channelId}/messages/${id}`);
     return await res.json();
   },
 
-  items: async ({ self, args }) => {
+  items: async (args, { self }) => {
     const { id: channelId } = self.$argsAt(root.guilds.one.channels.one);
     const res = await api("GET", `channels/${channelId}/messages`, { ...args });
     return await res.json();
@@ -166,13 +166,13 @@ export const MessageCollection = {
 };
 
 export const Guild = {
-  gref({ obj }) {
+  gref(_, { obj }) {
     return root.guilds.one({ id: obj.id });
   },
   channels: () => ({}),
   commands: () => ({}),
   members: () => ({}),
-  createCommand: async ({ self, args }) => {
+  createCommand: async (args, { self }) => {
     const { id } = self.$argsAt(root.guilds.one);
     const res = await api(
       "POST",
@@ -190,11 +190,11 @@ export const Guild = {
 };
 
 export const Command = {
-  async gref({ self, obj }) {
+  async gref(_, { self, obj }) {
     const { id } = self.$argsAt(root.guilds.one);
     return root.guilds.one({ id }).commands.one({ id: obj.id });
   },
-  delete: async ({ self, obj }) => {
+  delete: async (_, { self, obj }) => {
     const { id: guildId } = self.$argsAt(root.guilds.one);
     const { id } = self.$argsAt(root.guilds.one.commands.one);
 
@@ -206,12 +206,12 @@ export const Command = {
 };
 
 export const Channel = {
-  gref({ obj, self }) {
+  gref(_, { obj, self }) {
     const { id } = self.$argsAt(root.guilds.one);
     return root.guilds.one({ id }).channels.one({ id: obj.id });
   },
   messages: () => ({}),
-  sendMessage: async ({ self, args }) => {
+  sendMessage: async (args, { self }) => {
     const { id } = self.$argsAt(root.guilds.one.channels.one);
     const res = await api(
       "POST",
@@ -228,7 +228,7 @@ export const Channel = {
 };
 
 export const Message = {
-  gref({ obj, self }) {
+  gref(_, { obj, self }) {
     const { id: guildId } = self.$argsAt(root.guilds.one);
     const { id: channelId } = self.$argsAt(root.guilds.one.channels.one);
     return root.guilds
@@ -239,21 +239,19 @@ export const Message = {
 };
 
 export const User = {
-  gref({ obj }) {
+  gref(_, { obj }) {
     return root.users.one({ id: obj.id });
   },
 };
 
 export const Member = {
-  gref({ obj, self }) {
+  gref(_, { obj, self }) {
     const { id } = self.$argsAt(root.guilds.one);
     return root.guilds.one({ id }).members.one({ id: obj.user.id });
   },
 };
 
-export async function endpoint({
-  args: { path, query, headers, method, body },
-}) {
+export async function endpoint({ path, query, headers, method, body }) {
   switch (path) {
     case "/": {
       return '<a href="/auth">Add bot to Discord server</a>';
