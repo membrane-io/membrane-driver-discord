@@ -64,7 +64,7 @@ export function verifyHeaders(body, headers) {
     for (i = 0; i < v.length; i++) v[i] = 0;
   });
   // verify signature
-  const reqHeaders = JSON.parse(headers);
+  const reqHeaders = headers;
   const signature = reqHeaders["x-signature-ed25519"];
   const timestamp = reqHeaders["x-signature-timestamp"];
   const PUBLIC_KEY = state.publicKey;

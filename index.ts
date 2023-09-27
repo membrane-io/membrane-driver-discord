@@ -76,6 +76,34 @@ export const Root = {
       JSON.stringify(message)
     );
   },
+  tests: () => ({}),
+};
+
+export const Tests = {
+  ping: async () => {
+    const res = await root.me.username;
+    return typeof res === "string";
+  },
+  testGetGuilds: async () => {
+    const res = await root.guilds.items.$query(`{ id }`);
+
+    return Array.isArray(res);
+  },
+  testGetUsers: async () => {
+    const id = await root.me.id;
+    const res = await root.users.one({ id }).$query(`{ id }`);
+
+    return typeof res === "object";
+  },
+  testGetChannels: async () => {
+    const [guild]: any = await root.guilds.items.$query(`{ id }`);
+
+    const res = await root.guilds
+      .one({ id: guild.id })
+      .channels.items.$query(`{ id }`);
+
+    return Array.isArray(res);
+  },
 };
 
 export const UserCollection = {
@@ -274,7 +302,7 @@ export async function endpoint({ path, query, headers, method, body }) {
       return "There was an issue acquiring the access token. Check the logs.";
     }
     case "/interactions": {
-      const event = JSON.parse(body);
+      const event = body;
       // verify request signature
       const isVerified = verifyHeaders(body, headers);
       if (!isVerified) {

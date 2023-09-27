@@ -66,6 +66,10 @@
           {
             "name": "status",
             "type": "String"
+          },
+          {
+            "name": "tests",
+            "type": "Tests"
           }
         ],
         "actions": [
@@ -92,37 +96,6 @@
                 "name": "token",
                 "type": "String",
                 "optional": true
-              }
-            ]
-          },
-          {
-            "name": "endpoint",
-            "type": "String",
-            "hints": {
-              "hidden": true
-            },
-            "params": [
-              {
-                "name": "method",
-                "type": "String"
-              },
-              {
-                "name": "body",
-                "type": "String",
-                "optional": true
-              },
-              {
-                "name": "path",
-                "type": "String"
-              },
-              {
-                "name": "query",
-                "type": "String",
-                "optional": true
-              },
-              {
-                "name": "headers",
-                "type": "String"
               }
             ]
           },
@@ -798,6 +771,27 @@
           {
             "name": "value",
             "type": "String"
+          }
+        ]
+      },
+      {
+        "name": "Tests",
+        "actions": [
+          {
+            "name": "testGetGuilds",
+            "type": "Boolean"
+          },
+          {
+            "name": "ping",
+            "type": "Boolean"
+          },
+          {
+            "name": "testGetUsers",
+            "type": "Boolean"
+          },
+          {
+            "name": "testGetChannels",
+            "type": "Boolean"
           }
         ]
       }
