@@ -302,7 +302,7 @@ export async function endpoint({ path, query, headers, method, body }) {
       return "There was an issue acquiring the access token. Check the logs.";
     }
     case "/interactions": {
-      const event = body;
+      const event = JSON.parse(body);
       // verify request signature
       const isVerified = verifyHeaders(body, headers);
       if (!isVerified) {
