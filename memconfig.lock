@@ -1,12 +1,12 @@
 {
   "types": {
-    "endpoint": {
-      "gref_hash": "5038be7c7c7596daa9fe5c59a99aae5efa19b17e377d8e6f4b2e35fd9a8faf77",
-      "type": "String"
-    },
     "http": {
       "gref_hash": "5cfa57fe83d1201eb831cc168a5dbe9decaa6010603df244ca6855f2fe61440c",
       "type": "http:Root"
+    },
+    "endpoint": {
+      "gref_hash": "5038be7c7c7596daa9fe5c59a99aae5efa19b17e377d8e6f4b2e35fd9a8faf77",
+      "type": "String"
     }
   },
   "imports": [
@@ -124,7 +124,7 @@
               },
               {
                 "name": "endpoint",
-                "description": "The endpoint action",
+                "description": "Invoked when an HTTP request is received for this program",
                 "type": "String",
                 "params": [
                   {
@@ -140,6 +140,12 @@
                     "optional": false
                   },
                   {
+                    "name": "body",
+                    "description": "HTTP body, if any",
+                    "type": "String",
+                    "optional": true
+                  },
+                  {
                     "name": "query",
                     "description": "HTTP query string, encoded as JSON",
                     "type": "String",
@@ -150,10 +156,74 @@
                     "description": "HTTP headers, encoded as JSON",
                     "type": "String",
                     "optional": false
+                  }
+                ],
+                "hints": {
+                  "hidden": true
+                }
+              },
+              {
+                "name": "email",
+                "description": "Invoked when a new email arrives for this program",
+                "type": "String",
+                "params": [
+                  {
+                    "name": "replyTo",
+                    "description": "Reply to",
+                    "type": "String",
+                    "optional": true
                   },
                   {
-                    "name": "body",
-                    "description": "HTTP body, if any",
+                    "name": "text",
+                    "description": "Text",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "name": "from",
+                    "description": "From",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "name": "to",
+                    "description": "To",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "name": "cc",
+                    "description": "CC",
+                    "type": "String",
+                    "optional": true
+                  },
+                  {
+                    "name": "subject",
+                    "description": "Subject",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "name": "html",
+                    "description": "HTML",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "name": "id",
+                    "description": "ID",
+                    "type": "String",
+                    "optional": false
+                  },
+                  {
+                    "name": "inReplyTo",
+                    "description": "In reply to",
+                    "type": "String",
+                    "optional": true
+                  },
+                  {
+                    "name": "replyText",
+                    "description": "Reply text",
                     "type": "String",
                     "optional": true
                   }

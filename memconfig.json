@@ -521,12 +521,12 @@
           },
           {
             "name": "attachments",
-            "type": "List",
+            "type": "Json",
             "ofType": "String"
           },
           {
             "name": "embeds",
-            "type": "List",
+            "type": "Json",
             "ofType": "String"
           },
           {
@@ -536,7 +536,7 @@
           },
           {
             "name": "mention_roles",
-            "type": "List",
+            "type": "Json",
             "ofType": "String"
           },
           {
