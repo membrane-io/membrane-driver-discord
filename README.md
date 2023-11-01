@@ -1,13 +1,25 @@
 # Discord Driver for Membrane
 
-This [Membrane](https://membrane.io) driver lets you interact with the Discord API through your Membrane graph.
+This driver allows you to interact with the Discord API through your Membrane graph.
 
-To setup Discord driver follow steps:
+To set up the Discord driver, follow these steps:
 
-1. Create an [application](https://discord.com/developers/applications)
-1. Create a bot and get the [bot token](https://discord.com/developers/applications)
-1. Get OAuth2 [client id and client Secret](https://discord.com/developers/applications)
-1. Add SERVER MEMBERS INTENT and MESSAGE CONTENT INTENT to your bot in Privileged Gateway Intents.
-1. Invoke the `:configure` action with the bot token, client id, and client secret.
-1. Visit the program's endpoint URL to add the bot to your server's.
-1. Optional: Configure an interactions endpoint to receive interactions (outgoing webhooks).
+1. Create an [application](https://discord.com/developers/applications) and obtain the PUBLIC KEY.
+   - **Optional**: Configure an interactions endpoint to receive interactions (outgoing webhooks). Use `https://<PROGRAM-ENDPOINT-URL>/interactions`.
+
+2. Create a bot and acquire the [BOT TOKEN](https://discord.com/developers/applications).
+   - Add SERVER MEMBERS INTENT and MESSAGE CONTENT INTENT to your bot in Privileged Gateway Intents.
+
+3. Obtain OAuth2 [CLIENT ID and CLIENT SECRET](https://discord.com/developers/applications).
+   - Configure the redirect URL in your Discord application:
+     - In your Discord Developer Portal, navigate to your application's OAuth2 settings.
+     - Add a Redirect URL. Use `https://<PROGRAM-ENDPOINT-URL>/callback`.
+
+4. Invoke the `:configure` action with TOKEN, CLIENT ID, CLIENT SECRET, and PUBLIC KEY.
+
+5. Visit the program's endpoint URL to add the bot to your server.
+
+
+To obtain the program's endpoint URL, simply right-click on the program's name and select the relevant option to copy the URL.
+
+![Image](https://github.com/membrane-io/membrane-driver-discord/assets/9091881/e896144a-444e-4bfb-8bb5-408fd00e3899)
