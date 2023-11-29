@@ -604,7 +604,7 @@
           {
             "name": "flags",
             "type": "Int",
-            "description": "The flags on the Member's account, such as staff or partner."
+            "description": "Account flags for the member, such as staff or partner status."
           }
         ]
       },
