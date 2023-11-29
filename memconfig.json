@@ -136,7 +136,8 @@
                 "name": "id",
                 "type": "String"
               }
-            ]
+            ],
+            "description": "Retrieves a single member by their ID."
           },
           {
             "name": "page",
