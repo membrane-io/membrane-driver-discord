@@ -222,7 +222,8 @@
                 "name": "id",
                 "type": "String"
               }
-            ]
+            ],
+            "description": "Retrieves a single guild by its ID."
           },
           {
             "name": "items",
