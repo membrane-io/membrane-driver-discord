@@ -597,7 +597,8 @@
           },
           {
             "name": "avatar",
-            "type": "String"
+            "type": "String",
+            "description": "The Member's avatar URL or hash."
           },
           {
             "name": "flags",
