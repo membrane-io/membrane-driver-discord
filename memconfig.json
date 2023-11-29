@@ -573,7 +573,8 @@
             "hints": {
               "primary": true
             },
-            "type": "String"
+            "type": "String",
+            "description": "The timestamp when the Member joined the Guild."
           },
           {
             "name": "premium_since",
