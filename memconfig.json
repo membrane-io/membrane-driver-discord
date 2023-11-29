@@ -592,7 +592,8 @@
           },
           {
             "name": "pending",
-            "type": "Boolean"
+            "type": "Boolean",
+            "description": "Indicates whether the Member has passed the Guild's membership screening."
           },
           {
             "name": "avatar",
