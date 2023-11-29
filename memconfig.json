@@ -573,12 +573,12 @@
             "hints": {
               "primary": true
             },
-            "type": "String",
-            "description": "The timestamp when the Member joined the Guild."
+            "type": "String"
           },
           {
             "name": "premium_since",
-            "type": "String"
+            "type": "String",
+            "description": "The timestamp when the Member started boosting the Guild."
           },
           {
             "name": "deaf",
