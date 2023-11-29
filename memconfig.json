@@ -551,7 +551,8 @@
         "fields": [
           {
             "name": "user",
-            "type": "User"
+            "type": "User",
+            "description": "The User object associated with the Member."
           },
           {
             "name": "nick",
