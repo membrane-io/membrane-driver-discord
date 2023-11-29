@@ -582,7 +582,8 @@
           },
           {
             "name": "deaf",
-            "type": "Boolean"
+            "type": "Boolean",
+            "description": "Indicates whether the Member is deafened in voice channels."
           },
           {
             "name": "mute",
