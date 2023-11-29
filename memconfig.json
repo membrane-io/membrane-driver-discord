@@ -32,7 +32,8 @@
         "fields": [
           {
             "name": "guilds",
-            "type": "GuildCollection"
+            "type": "GuildCollection",
+            "description": "Collection of guilds accessible by the bot."
           },
           {
             "name": "me",
