@@ -37,7 +37,8 @@
           },
           {
             "name": "me",
-            "type": "User"
+            "type": "User",
+            "description": "The user profile of the bot."
           },
           {
             "name": "users",
