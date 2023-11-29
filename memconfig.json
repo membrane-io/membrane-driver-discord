@@ -594,7 +594,7 @@
           {
             "name": "pending",
             "type": "Boolean",
-            "description": "Indicates whether the Member has passed the Guild's membership screening."
+            "description": "Shows whether the member has completed the server's membership screening."
           },
           {
             "name": "avatar",
