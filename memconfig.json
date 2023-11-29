@@ -186,8 +186,7 @@
                 "name": "id",
                 "type": "String"
               }
-            ],
-            "description": "Retrieves a single command by its ID."
+            ]
           },
           {
             "name": "items",
@@ -207,7 +206,8 @@
                 "name": "id",
                 "type": "String"
               }
-            ]
+            ],
+            "description": "Retrieves a single user by their ID."
           }
         ]
       },
