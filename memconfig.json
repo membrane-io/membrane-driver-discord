@@ -559,7 +559,8 @@
             "hints": {
               "primary": true
             },
-            "type": "String"
+            "type": "String",
+            "description": "The nickname of the Member within the Guild."
           },
           {
             "name": "roles",
