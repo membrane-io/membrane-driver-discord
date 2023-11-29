@@ -370,7 +370,8 @@
                 "type": "String",
                 "optional": true
               }
-            ]
+            ],
+            "description": "Provides a paginated collection of messages."
           }
         ]
       },
