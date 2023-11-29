@@ -164,7 +164,8 @@
           {
             "name": "items",
             "type": "List",
-            "ofType": "Member"
+            "ofType": "Member",
+            "description": "List of members in the current page."
           },
           {
             "name": "next",
