@@ -602,7 +602,8 @@
           },
           {
             "name": "flags",
-            "type": "Int"
+            "type": "Int",
+            "description": "The flags on the Member's account, such as staff or partner."
           }
         ]
       },
