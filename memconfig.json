@@ -186,7 +186,8 @@
                 "name": "id",
                 "type": "String"
               }
-            ]
+            ],
+            "description": "Retrieves a single command by its ID."
           },
           {
             "name": "items",
