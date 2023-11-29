@@ -69,7 +69,8 @@
           },
           {
             "name": "status",
-            "type": "String"
+            "type": "String",
+            "description": "Current status of the bot."
           },
           {
             "name": "tests",
