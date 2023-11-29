@@ -222,13 +222,13 @@
                 "name": "id",
                 "type": "String"
               }
-            ],
-            "description": "Retrieves a single guild by its ID."
+            ]
           },
           {
             "name": "items",
             "type": "List",
-            "ofType": "Guild"
+            "ofType": "Guild",
+            "description": "List of all guilds the bot is a member of."
           }
         ]
       },
