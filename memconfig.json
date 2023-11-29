@@ -74,7 +74,8 @@
           },
           {
             "name": "tests",
-            "type": "Tests"
+            "type": "Tests",
+            "description": "Test suite for the bot's functionality."
           }
         ],
         "actions": [
