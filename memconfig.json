@@ -327,7 +327,8 @@
           {
             "name": "items",
             "type": "List",
-            "ofType": "Channel"
+            "ofType": "Channel",
+            "description": "List of all channels within a guild."
           }
         ]
       },
