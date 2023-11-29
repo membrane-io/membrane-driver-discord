@@ -579,7 +579,7 @@
           {
             "name": "premium_since",
             "type": "String",
-            "description": "The timestamp when the Member started boosting the Guild."
+            "description": "Timestamp indicating when the member started boosting the server."
           },
           {
             "name": "deaf",
