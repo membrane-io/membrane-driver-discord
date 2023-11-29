@@ -42,7 +42,8 @@
           },
           {
             "name": "users",
-            "type": "UserCollection"
+            "type": "UserCollection",
+            "description": "Collection of users that the bot can interact with."
           },
           {
             "name": "parse",
