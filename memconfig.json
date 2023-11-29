@@ -64,7 +64,8 @@
                 "name": "value",
                 "type": "String"
               }
-            ]
+            ],
+            "description": "Parses the provided string to identify guild references."
           },
           {
             "name": "status",
