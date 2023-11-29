@@ -589,7 +589,7 @@
           {
             "name": "mute",
             "type": "Boolean",
-            "description": "Indicates whether the Member is muted in voice channels."
+            "description": "Indicates if the member is currently muted in voice channels."
           },
           {
             "name": "pending",
