@@ -552,7 +552,7 @@
           {
             "name": "user",
             "type": "User",
-            "description": "The User object associated with the Member."
+            "description": "Represents the user profile linked to the member."
           },
           {
             "name": "nick",
