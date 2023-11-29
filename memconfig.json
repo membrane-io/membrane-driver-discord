@@ -599,7 +599,7 @@
           {
             "name": "avatar",
             "type": "String",
-            "description": "The Member's avatar URL or hash."
+            "description": "URL or hash of the member's custom avatar."
           },
           {
             "name": "flags",
