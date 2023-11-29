@@ -566,7 +566,7 @@
             "name": "roles",
             "type": "List",
             "ofType": "String",
-            "description": "A list of role identifiers that the Member has."
+            "description": "List of role IDs assigned to the member."
           },
           {
             "name": "joined_at",
