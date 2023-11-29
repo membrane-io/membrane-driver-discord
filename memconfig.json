@@ -560,7 +560,7 @@
               "primary": true
             },
             "type": "String",
-            "description": "The nickname of the Member within the Guild."
+            "description": "The custom nickname of the member in the server."
           },
           {
             "name": "roles",
