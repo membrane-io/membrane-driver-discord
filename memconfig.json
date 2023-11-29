@@ -579,12 +579,12 @@
           {
             "name": "premium_since",
             "type": "String",
-            "description": "Timestamp indicating when the member started boosting the server."
+            "description": "The timestamp when the Member started boosting the Guild."
           },
           {
             "name": "deaf",
             "type": "Boolean",
-            "description": "Indicates whether the Member is deafened in voice channels."
+            "description": "Indicates if the member is currently deafened in voice channels."
           },
           {
             "name": "mute",
