@@ -170,7 +170,8 @@
           {
             "name": "next",
             "type": "Ref",
-            "ofType": "MemberPage"
+            "ofType": "MemberPage",
+            "description": "Reference to the next page of members."
           }
         ]
       },
