@@ -407,17 +407,17 @@
           {
             "name": "id",
             "type": "String",
-            "description": "Unique identifier of the Discord channel."
+            "description": "The Discord-given unique ID for this channel."
           },
           {
             "name": "last_message_id",
             "type": "String",
-            "description": "ID of the most recent message in the channel."
+            "description": "Identifier for the latest message sent in this channel."
           },
           {
             "name": "rate_limit_per_user",
             "type": "Int",
-            "description": "The send rate limit for users in the channel."
+            "description": "Amount of time a user must wait before sending another message in this channel (rate limiting)."
           },
           {
             "name": "name",
@@ -425,53 +425,53 @@
             "hints": {
               "primary": true
             },
-            "description": "The designated name of the channel."
+            "description": "The name assigned to this channel within Discord."
           },
           {
             "name": "type",
             "type": "Int",
-            "description": "The type of channel, such as text, voice, etc."
+            "description": "Indicates the channel category, such as text, voice, or category channel."
           },
           {
             "name": "position",
             "type": "Int",
-            "description": "Position of the channel within the channel list."
+            "description": "The placement of this channel in the server's channel hierarchy."
           },
           {
             "name": "flags",
             "type": "Int",
-            "description": "Channel features indicated by bitwise flags."
+            "description": "Special attributes and functionalities of this channel identified by flag bits."
           },
           {
             "name": "nsfw",
             "type": "Boolean",
-            "description": "Marks if the channel is not safe for work (NSFW)."
+            "description": "Whether the channel contains content that is inappropriate for underage users."
           },
           {
             "name": "parend_id",
             "type": "String",
-            "description": "The ID of the parent category this channel is under."
+            "description": "Discord ID of the channel's parent category, if any."
           },
           {
             "name": "topic",
             "type": "String",
-            "description": "Topic or description of the channel."
+            "description": "The subject or specific purpose of the channel outlined in a brief description."
           },
           {
             "name": "guild_id",
             "type": "String",
-            "description": "ID of the guild to which the channel belongs."
+            "description": "Identifier of the guild in which this channel resides."
           },
           {
             "name": "permissions_overwrites",
             "type": "List",
             "ofType": "String",
-            "description": "Overrides for channel-specific permissions."
+            "description": "A collection of permissions adjustments specific to this channel."
           },
           {
             "name": "messages",
             "type": "MessageCollection",
-            "description": "Access to the collection of messages in the channel."
+            "description": "Provides access to a searchable collection of messages in the channel."
           }
         ],
         "actions": [
