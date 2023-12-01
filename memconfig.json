@@ -368,7 +368,7 @@
                 "type": "String"
               }
             ],
-            "description": "Obtains a single message using its unique Discord ID."
+            "description": "Acquires information for an individual message by its Discord ID."
           },
           {
             "name": "items",
@@ -396,7 +396,7 @@
                 "optional": true
               }
             ],
-            "description": "Fetches messages with options for quantity and relative positioning constraints."
+            "description": "Retrieves a collection of messages with optional parameters for limiting number and specifying position."
           }
         ],
         "description": ""
