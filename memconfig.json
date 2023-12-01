@@ -215,7 +215,7 @@
                 "type": "String"
               }
             ],
-            "description": "Acquires a user profile based on their Discord identifier."
+            "description": "Retrieves user information for a single Discord user by their ID."
           }
         ],
         "description": ""
