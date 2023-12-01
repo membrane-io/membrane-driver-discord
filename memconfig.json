@@ -122,9 +122,11 @@
                 "name": "message",
                 "type": "Json"
               }
-            ]
+            ],
+            "description": "Action to send a follow-up message to a Discord webhook."
           }
-        ]
+        ],
+        "description": "Root type for the Discord driver."
       },
       {
         "name": "MemberCollection",
@@ -157,7 +159,8 @@
             ],
             "description": "Provides a paginated collection of members."
           }
-        ]
+        ],
+        "description": "Collection of members in a guild."
       },
       {
         "name": "MemberPage",
@@ -174,7 +177,8 @@
             "ofType": "MemberPage",
             "description": "Reference to the next page of members."
           }
-        ]
+        ],
+        "description": "Page of members in a guild."
       },
       {
         "name": "CommandCollection",
@@ -194,7 +198,8 @@
             "type": "List",
             "ofType": "Command"
           }
-        ]
+        ],
+        "description": "Collection of commands in a guild."
       },
       {
         "name": "UserCollection",
@@ -210,7 +215,8 @@
             ],
             "description": "Retrieves a single user by their ID."
           }
-        ]
+        ],
+        "description": "Collection of users in a guild."
       },
       {
         "name": "GuildCollection",
@@ -231,7 +237,8 @@
             "ofType": "Guild",
             "description": "List of all guilds the bot is a member of."
           }
-        ]
+        ],
+        "description": "Collection of guilds."
       },
       {
         "name": "Guild",
@@ -302,7 +309,8 @@
                 "type": "Int",
                 "optional": true
               }
-            ]
+            ],
+            "description": "Action to create a new command within a guild."
           }
         ],
         "events": [
@@ -310,7 +318,8 @@
             "name": "onSlashCommand",
             "type": "SlashCommand"
           }
-        ]
+        ],
+        "description": "Representation of a guild."
       },
       {
         "name": "ChannelCollection",
@@ -331,7 +340,8 @@
             "ofType": "Channel",
             "description": "List of all channels within a guild."
           }
-        ]
+        ],
+        "description": "Collection of channels in a guild."
       },
       {
         "name": "MessageCollection",
@@ -374,7 +384,8 @@
             ],
             "description": "Provides a paginated collection of messages."
           }
-        ]
+        ],
+        "description": "Collection of messages in a channel."
       },
       {
         "name": "Channel",
@@ -480,9 +491,11 @@
                 "type": "String",
                 "optional": true
               }
-            ]
+            ],
+            "description": "Action to send a message to a channel in a Discord server."
           }
-        ]
+        ],
+        "description": "Representation of a channel."
       },
       {
         "name": "Message",
@@ -559,7 +572,8 @@
             "type": "List",
             "ofType": "Reaction"
           }
-        ]
+        ],
+        "description": "Representation of a message in a channel."
       },
       {
         "name": "Member",
@@ -621,7 +635,8 @@
             "type": "Int",
             "description": "Account flags for the member, such as staff or partner status."
           }
-        ]
+        ],
+        "description": "Representation of a member in a guild."
       },
       {
         "name": "User",
@@ -661,7 +676,8 @@
             "name": "bot",
             "type": "Boolean"
           }
-        ]
+        ],
+        "description": "Representation of a user in a guild."
       },
       {
         "name": "Reaction",
@@ -678,7 +694,8 @@
             "name": "emoji",
             "type": "Emoji"
           }
-        ]
+        ],
+        "description": "Representation of a reaction to a message."
       },
       {
         "name": "Command",
@@ -721,7 +738,8 @@
             "name": "delete",
             "type": "Void"
           }
-        ]
+        ],
+        "description": "Representation of a command in a guild."
       },
       {
         "name": "Emoji",
@@ -759,7 +777,8 @@
             "type": "List",
             "ofType": "String"
           }
-        ]
+        ],
+        "description": "Representation of an emoji in a guild."
       },
       {
         "name": "SlashCommand",
@@ -780,7 +799,8 @@
             "name": "options",
             "type": "String"
           }
-        ]
+        ],
+        "description": "Representation of a slash command in a guild."
       },
       {
         "name": "CommandOption",
@@ -797,7 +817,8 @@
             "name": "value",
             "type": "String"
           }
-        ]
+        ],
+        "description": "Representation of a command option in a guild."
       },
       {
         "name": "Tests",
@@ -818,7 +839,8 @@
             "name": "testGetChannels",
             "type": "Boolean"
           }
-        ]
+        ],
+        "description": "Tests type for the Discord driver."
       }
     ]
   },
