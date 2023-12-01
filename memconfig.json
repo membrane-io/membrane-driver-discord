@@ -140,7 +140,7 @@
                 "type": "String"
               }
             ],
-            "description": "Fetches a specific member using their Discord identifier."
+            "description": "Retrieves a single member based on their unique Discord ID."
           },
           {
             "name": "page",
@@ -157,7 +157,7 @@
                 "optional": true
               }
             ],
-            "description": "Acquires a segment of members with optional quantity and pagination controls."
+            "description": "Obtains a paginated list of members, with options to limit the batch size and specify the starting point."
           }
         ],
         "description": ""
