@@ -807,36 +807,44 @@
         "fields": [
           {
             "name": "id",
-            "type": "String"
+            "type": "String",
+            "description": "The unique identifier assigned to the emoji by Discord."
           },
           {
             "name": "user",
-            "type": "User"
+            "type": "User",
+            "description": "The user who added this emoji to the guild."
           },
           {
             "name": "name",
-            "type": "String"
+            "type": "String",
+            "description": "The name of the emoji as it appears in Discord."
           },
           {
             "name": "animated",
-            "type": "Boolean"
+            "type": "Boolean",
+            "description": "Reflects whether the emoji is animated."
           },
           {
             "name": "available",
-            "type": "Boolean"
+            "type": "Boolean",
+            "description": "Indicates if the emoji is currently available to be used in the guild."
           },
           {
             "name": "require_colons",
-            "type": "Boolean"
+            "type": "Boolean",
+            "description": "Specifies if colons are needed to use the emoji in Discord messages."
           },
           {
             "name": "managed",
-            "type": "Boolean"
+            "type": "Boolean",
+            "description": "Determines if the emoji is managed by an integration or bot."
           },
           {
             "name": "roles",
             "type": "List",
-            "ofType": "String"
+            "ofType": "String",
+            "description": "A list of role IDs that are allowed to use this emoji."
           }
         ],
         "description": ""
