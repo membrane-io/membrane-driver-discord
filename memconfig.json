@@ -880,15 +880,18 @@
         "fields": [
           {
             "name": "name",
-            "type": "String"
+            "type": "String",
+            "description": "The name of the option as defined in the slash command."
           },
           {
             "name": "type",
-            "type": "String"
+            "type": "String",
+            "description": "The data type of the option, such as String, Integer, Boolean, etc."
           },
           {
             "name": "value",
-            "type": "String"
+            "type": "String",
+            "description": "The value provided by the user for this option."
           }
         ],
         "description": ""
