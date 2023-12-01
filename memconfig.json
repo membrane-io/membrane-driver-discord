@@ -33,17 +33,17 @@
           {
             "name": "guilds",
             "type": "GuildCollection",
-            "description": "A collection of guilds (servers) that the bot is currently a member of."
+            "description": "Collection of Discord guilds where the bot is active."
           },
           {
             "name": "me",
             "type": "User",
-            "description": "Information about the user account associated with the bot."
+            "description": "Represents the bot's user profile within Discord."
           },
           {
             "name": "users",
             "type": "UserCollection",
-            "description": "A collection of users that the bot can interact with."
+            "description": "Accumulated collection of users that the bot has encountered."
           },
           {
             "name": "parse",
@@ -65,17 +65,17 @@
                 "type": "String"
               }
             ],
-            "description": "Parses the provided name and value into a Discord guild reference."
+            "description": "Interprets the provided name and value as a guild reference in Discord."
           },
           {
             "name": "status",
             "type": "String",
-            "description": "The current status of the Discord bot."
+            "description": "Reflects the bot's current operational status."
           },
           {
             "name": "tests",
             "type": "Tests",
-            "description": "A set of tests to verify the bot's functionality."
+            "description": "Comprises tests for ensuring the bot's correct functionality."
           }
         ],
         "actions": [
@@ -140,7 +140,7 @@
                 "type": "String"
               }
             ],
-            "description": "Retrieves a single member using their unique Discord ID."
+            "description": "Fetches a specific member using their Discord identifier."
           },
           {
             "name": "page",
@@ -157,7 +157,7 @@
                 "optional": true
               }
             ],
-            "description": "Fetches a paginated list of members, with optional limits on the number returned and cursor-based pagination."
+            "description": "Acquires a segment of members with optional quantity and pagination controls."
           }
         ],
         "description": ""
@@ -169,13 +169,13 @@
             "name": "items",
             "type": "List",
             "ofType": "Member",
-            "description": "A list of members contained in the current page."
+            "description": "The collection of members within this page."
           },
           {
             "name": "next",
             "type": "Ref",
             "ofType": "MemberPage",
-            "description": "A reference to the next page of members."
+            "description": "Link to the subsequent page of members if available."
           }
         ],
         "description": ""
@@ -192,13 +192,13 @@
                 "type": "String"
               }
             ],
-            "description": "Retrieves a single command by its unique ID."
+            "description": "Obtains a command using its unique Discord ID."
           },
           {
             "name": "items",
             "type": "List",
             "ofType": "Command",
-            "description": "A list of all registered commands."
+            "description": "Contains all commands available to the bot."
           }
         ],
         "description": ""
@@ -215,7 +215,7 @@
                 "type": "String"
               }
             ],
-            "description": "Retrieves a single user by their Discord ID."
+            "description": "Acquires a user profile based on their Discord identifier."
           }
         ],
         "description": ""
@@ -232,13 +232,13 @@
                 "type": "String"
               }
             ],
-            "description": "Retrieves a single guild by its unique Discord ID."
+            "description": "Fetches details of a specific guild by its Discord ID."
           },
           {
             "name": "items",
             "type": "List",
             "ofType": "Guild",
-            "description": "A list of all guilds the bot is a member of."
+            "description": "Compiles a list of guilds where the bot is present."
           }
         ],
         "description": ""
@@ -248,43 +248,52 @@
         "fields": [
           {
             "name": "id",
-            "type": "String"
+            "type": "String",
+            "description": "Unique identifier for the Discord guild."
           },
           {
             "name": "name",
             "type": "String",
             "hints": {
               "primary": true
-            }
+            },
+            "description": "The official name of the Discord guild."
           },
           {
             "name": "icon",
-            "type": "String"
+            "type": "String",
+            "description": "URL to the guild's icon image."
           },
           {
             "name": "owner",
-            "type": "Boolean"
+            "type": "Boolean",
+            "description": "Indicates if the bot is the owner of the guild."
           },
           {
             "name": "permissions",
-            "type": "Int"
+            "type": "Int",
+            "description": "Numerical value representing the permissions the bot has in the guild."
           },
           {
             "name": "features",
             "type": "List",
-            "ofType": "String"
+            "ofType": "String",
+            "description": "A list of special features available in the guild."
           },
           {
             "name": "channels",
-            "type": "ChannelCollection"
+            "type": "ChannelCollection",
+            "description": "Collection of channels within the guild."
           },
           {
             "name": "commands",
-            "type": "CommandCollection"
+            "type": "CommandCollection",
+            "description": "Collection of custom bot commands specific to the guild."
           },
           {
             "name": "members",
-            "type": "MemberCollection"
+            "type": "MemberCollection",
+            "description": "Collection of guild members."
           }
         ],
         "actions": [
@@ -336,13 +345,13 @@
                 "type": "String"
               }
             ],
-            "description": "Retrieves a single channel by its unique Discord ID."
+            "description": "Fetches a particular channel using its Discord ID."
           },
           {
             "name": "items",
             "type": "List",
             "ofType": "Channel",
-            "description": "A list of all channels in a guild or direct message channels that the bot has access to."
+            "description": "Compiles all accessible channels, including guild and direct message channels."
           }
         ],
         "description": ""
@@ -359,7 +368,7 @@
                 "type": "String"
               }
             ],
-            "description": "Retrieves a specific message by its ID."
+            "description": "Obtains a single message using its unique Discord ID."
           },
           {
             "name": "items",
@@ -387,7 +396,7 @@
                 "optional": true
               }
             ],
-            "description": "Retrieves a list of messages, optionally limited by the provided parameters like limit, around, before, and after."
+            "description": "Fetches messages with options for quantity and relative positioning constraints."
           }
         ],
         "description": ""
@@ -397,59 +406,72 @@
         "fields": [
           {
             "name": "id",
-            "type": "String"
+            "type": "String",
+            "description": "Unique identifier of the Discord channel."
           },
           {
             "name": "last_message_id",
-            "type": "String"
+            "type": "String",
+            "description": "ID of the most recent message in the channel."
           },
           {
             "name": "rate_limit_per_user",
-            "type": "Int"
+            "type": "Int",
+            "description": "The send rate limit for users in the channel."
           },
           {
             "name": "name",
             "type": "String",
             "hints": {
               "primary": true
-            }
+            },
+            "description": "The designated name of the channel."
           },
           {
             "name": "type",
-            "type": "Int"
+            "type": "Int",
+            "description": "The type of channel, such as text, voice, etc."
           },
           {
             "name": "position",
-            "type": "Int"
+            "type": "Int",
+            "description": "Position of the channel within the channel list."
           },
           {
             "name": "flags",
-            "type": "Int"
+            "type": "Int",
+            "description": "Channel features indicated by bitwise flags."
           },
           {
             "name": "nsfw",
-            "type": "Boolean"
+            "type": "Boolean",
+            "description": "Marks if the channel is not safe for work (NSFW)."
           },
           {
             "name": "parend_id",
-            "type": "String"
+            "type": "String",
+            "description": "The ID of the parent category this channel is under."
           },
           {
             "name": "topic",
-            "type": "String"
+            "type": "String",
+            "description": "Topic or description of the channel."
           },
           {
             "name": "guild_id",
-            "type": "String"
+            "type": "String",
+            "description": "ID of the guild to which the channel belongs."
           },
           {
             "name": "permissions_overwrites",
             "type": "List",
-            "ofType": "String"
+            "ofType": "String",
+            "description": "Overrides for channel-specific permissions."
           },
           {
             "name": "messages",
-            "type": "MessageCollection"
+            "type": "MessageCollection",
+            "description": "Access to the collection of messages in the channel."
           }
         ],
         "actions": [
@@ -507,22 +529,26 @@
         "fields": [
           {
             "name": "id",
-            "type": "String"
+            "type": "String",
+            "description": "The unique identifier of the message."
           },
           {
             "name": "type",
-            "type": "Int"
+            "type": "Int",
+            "description": "Defines the type of message."
           },
           {
             "name": "content",
             "type": "String",
             "hints": {
               "primary": true
-            }
+            },
+            "description": "The textual content of the message."
           },
           {
             "name": "channel_id",
-            "type": "String"
+            "type": "String",
+            "description": "Identifier of the channel where the message was sent."
           },
           {
             "name": "pinned",
