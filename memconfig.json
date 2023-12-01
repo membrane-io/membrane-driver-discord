@@ -686,38 +686,46 @@
         "fields": [
           {
             "name": "id",
-            "type": "String"
+            "type": "String",
+            "description": "Discord's unique identifier for the user."
           },
           {
             "name": "username",
             "type": "String",
             "hints": {
               "primary": true
-            }
+            },
+            "description": "The user's chosen username on Discord."
           },
           {
             "name": "display_name",
-            "type": "String"
+            "type": "String",
+            "description": "The name shown in the user's profile, which may include the nickname if set."
           },
           {
             "name": "avatar",
-            "type": "String"
+            "type": "String",
+            "description": "URL to the user's profile image or avatar."
           },
           {
             "name": "avatar_decoration",
-            "type": "String"
+            "type": "String",
+            "description": "Additional visual elements or frames around the user's avatar."
           },
           {
             "name": "discriminator",
-            "type": "String"
+            "type": "String",
+            "description": "A four-digit number that helps to differentiate users with the same username."
           },
           {
             "name": "public_flags",
-            "type": "Int"
+            "type": "Int",
+            "description": "Flags representing the user's achievements and features on Discord."
           },
           {
             "name": "bot",
-            "type": "Boolean"
+            "type": "Boolean",
+            "description": "Indicates whether the user is a Discord bot account."
           }
         ],
         "description": ""
