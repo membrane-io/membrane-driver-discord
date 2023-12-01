@@ -854,19 +854,23 @@
         "fields": [
           {
             "name": "user",
-            "type": "User"
+            "type": "User",
+            "description": "Information about the user who invoked the slash command."
           },
           {
             "name": "application_id",
-            "type": "String"
+            "type": "String",
+            "description": "The unique identifier of the Discord application."
           },
           {
             "name": "token",
-            "type": "String"
+            "type": "String",
+            "description": "A session token specific to this interaction."
           },
           {
             "name": "options",
-            "type": "String"
+            "type": "String",
+            "description": "A string containing the parameters and values passed with the slash command."
           }
         ],
         "description": ""
