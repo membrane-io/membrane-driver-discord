@@ -232,13 +232,13 @@
                 "type": "String"
               }
             ],
-            "description": "Fetches details of a specific guild by its Discord ID."
+            "description": "Acquires detailed information for a specific guild using its unique Discord ID."
           },
           {
             "name": "items",
             "type": "List",
             "ofType": "Guild",
-            "description": "Compiles a list of guilds where the bot is present."
+            "description": "Aggregates all guilds for which the bot is a member."
           }
         ],
         "description": ""
