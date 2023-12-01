@@ -759,32 +759,39 @@
             "type": "String",
             "hints": {
               "primary": true
-            }
+            },
+            "description": "The name used to invoke the command within Discord."
           },
           {
             "name": "description",
-            "type": "String"
+            "type": "String",
+            "description": "A brief summary of what the command does."
           },
           {
             "name": "default_member_permissions",
-            "type": "String"
+            "type": "String",
+            "description": "Permissions required for a guild member to use this command by default."
           },
           {
             "name": "default_permission",
-            "type": "Boolean"
+            "type": "Boolean",
+            "description": "Indicates whether the command is enabled by default when the bot is added to a guild."
           },
           {
             "name": "type",
-            "type": "Int"
+            "type": "Int",
+            "description": "Determines the command's type, such as chat input, user command, or message command."
           },
           {
             "name": "nsfw",
-            "type": "Boolean"
+            "type": "Boolean",
+            "description": "States if the command is marked as 'not safe for work' and should be limited to NSFW channels."
           },
           {
             "name": "options",
             "type": "List",
-            "ofType": "String"
+            "ofType": "String",
+            "description": "A collection of options or parameters that can be used with the command."
           }
         ],
         "actions": [
