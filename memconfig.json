@@ -104,7 +104,7 @@
                 "optional": true
               }
             ],
-            "description": ""
+            "description": "Sets up the necessary configurations for the Discord Bot such as clientId, clientSecret, publicKey, and token."
           },
           {
             "name": "followUpWebhook",
@@ -123,7 +123,7 @@
                 "type": "Json"
               }
             ],
-            "description": ""
+            "description": "Sends a follow-up message to an interaction using a webhook."
           }
         ],
         "description": ""
@@ -140,7 +140,7 @@
                 "type": "String"
               }
             ],
-            "description": ""
+            "description": "Retrieves a single member using their unique Discord ID."
           },
           {
             "name": "page",
@@ -157,7 +157,7 @@
                 "optional": true
               }
             ],
-            "description": ""
+            "description": "Fetches a paginated list of members, with optional limits on the number returned and cursor-based pagination."
           }
         ],
         "description": ""
@@ -169,13 +169,13 @@
             "name": "items",
             "type": "List",
             "ofType": "Member",
-            "description": ""
+            "description": "A list of members contained in the current page."
           },
           {
             "name": "next",
             "type": "Ref",
             "ofType": "MemberPage",
-            "description": ""
+            "description": "A reference to the next page of members."
           }
         ],
         "description": ""
@@ -192,12 +192,13 @@
                 "type": "String"
               }
             ],
-            "description": ""
+            "description": "Retrieves a single command by its unique ID."
           },
           {
             "name": "items",
             "type": "List",
-            "ofType": "Command"
+            "ofType": "Command",
+            "description": "A list of all registered commands."
           }
         ],
         "description": ""
@@ -214,7 +215,7 @@
                 "type": "String"
               }
             ],
-            "description": ""
+            "description": "Retrieves a single user by their Discord ID."
           }
         ],
         "description": ""
@@ -231,13 +232,13 @@
                 "type": "String"
               }
             ],
-            "description": ""
+            "description": "Retrieves a single guild by its unique Discord ID."
           },
           {
             "name": "items",
             "type": "List",
             "ofType": "Guild",
-            "description": ""
+            "description": "A list of all guilds the bot is a member of."
           }
         ],
         "description": ""
@@ -312,7 +313,7 @@
                 "optional": true
               }
             ],
-            "description": ""
+            "description": "Creates a new command in the guild with the given details, including name, description, options, and command type."
           }
         ],
         "events": [
