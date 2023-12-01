@@ -192,13 +192,13 @@
                 "type": "String"
               }
             ],
-            "description": "Obtains a command using its unique Discord ID."
+            "description": "Retrieves a specific command using its Discord-assigned ID."
           },
           {
             "name": "items",
             "type": "List",
             "ofType": "Command",
-            "description": "Contains all commands available to the bot."
+            "description": "A complete list of commands that the Discord bot can execute."
           }
         ],
         "description": ""
