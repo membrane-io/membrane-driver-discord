@@ -624,7 +624,7 @@
           {
             "name": "user",
             "type": "User",
-            "description": ""
+            "description": "Discord user information associated with this member."
           },
           {
             "name": "nick",
@@ -632,13 +632,13 @@
               "primary": true
             },
             "type": "String",
-            "description": ""
+            "description": "The nickname of the member within the guild."
           },
           {
             "name": "roles",
             "type": "List",
             "ofType": "String",
-            "description": ""
+            "description": "List of role identifiers that the member has in the guild."
           },
           {
             "name": "joined_at",
@@ -646,37 +646,37 @@
               "primary": true
             },
             "type": "String",
-            "description": ""
+            "description": "The timestamp of when the member joined the guild."
           },
           {
             "name": "premium_since",
             "type": "String",
-            "description": ""
+            "description": "Indicates when the member started boosting the guild, if applicable."
           },
           {
             "name": "deaf",
             "type": "Boolean",
-            "description": ""
+            "description": "Whether the member is deafened in voice channels within the guild."
           },
           {
             "name": "mute",
             "type": "Boolean",
-            "description": ""
+            "description": "Whether the member is muted in voice channels in the guild."
           },
           {
             "name": "pending",
             "type": "Boolean",
-            "description": ""
+            "description": "Indicates if the member has passed the guild's membership screening."
           },
           {
             "name": "avatar",
             "type": "String",
-            "description": ""
+            "description": "URL to the member's custom guild avatar if set."
           },
           {
             "name": "flags",
             "type": "Int",
-            "description": ""
+            "description": "Bitwise flags that represent various member attributes and permissions."
           }
         ],
         "description": ""
