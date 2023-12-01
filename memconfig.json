@@ -345,13 +345,13 @@
                 "type": "String"
               }
             ],
-            "description": "Fetches a particular channel using its Discord ID."
+            "description": "Retrieves a single channel by its unique Discord identifier."
           },
           {
             "name": "items",
             "type": "List",
             "ofType": "Channel",
-            "description": "Compiles all accessible channels, including guild and direct message channels."
+            "description": "An array of all channels that the bot can access, including text, voice, and DM channels."
           }
         ],
         "description": ""
