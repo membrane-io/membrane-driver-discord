@@ -104,7 +104,7 @@
                 "optional": true
               }
             ],
-            "description": "Configures the Discord driver with the provided token."
+            "description": "Action to configure the Discord driver."
           },
           {
             "name": "followUpWebhook",
