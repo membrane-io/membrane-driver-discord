@@ -249,7 +249,7 @@
           {
             "name": "id",
             "type": "String",
-            "description": "Unique identifier for the Discord guild."
+            "description": "The Discord-assigned unique identifier of the guild."
           },
           {
             "name": "name",
@@ -257,43 +257,43 @@
             "hints": {
               "primary": true
             },
-            "description": "The official name of the Discord guild."
+            "description": "Officially recognized name of the Discord guild."
           },
           {
             "name": "icon",
             "type": "String",
-            "description": "URL to the guild's icon image."
+            "description": "Link to the image used as the guild's icon."
           },
           {
             "name": "owner",
             "type": "Boolean",
-            "description": "Indicates if the bot is the owner of the guild."
+            "description": "Flag to determine if the bot owns the guild."
           },
           {
             "name": "permissions",
             "type": "Int",
-            "description": "Numerical value representing the permissions the bot has in the guild."
+            "description": "The set of permissions the bot possesses in this guild, expressed as an integer value."
           },
           {
             "name": "features",
             "type": "List",
             "ofType": "String",
-            "description": "A list of special features available in the guild."
+            "description": "List of unique features that the guild offers."
           },
           {
             "name": "channels",
             "type": "ChannelCollection",
-            "description": "Collection of channels within the guild."
+            "description": "All the channels available in the guild."
           },
           {
             "name": "commands",
             "type": "CommandCollection",
-            "description": "Collection of custom bot commands specific to the guild."
+            "description": "A compilation of all bot commands that are usable within this guild."
           },
           {
             "name": "members",
             "type": "MemberCollection",
-            "description": "Collection of guild members."
+            "description": "An array of members that are part of the guild."
           }
         ],
         "actions": [
