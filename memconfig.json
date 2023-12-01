@@ -103,7 +103,8 @@
                 "type": "String",
                 "optional": true
               }
-            ]
+            ],
+            "description": "Configures the Discord driver with the provided token."
           },
           {
             "name": "followUpWebhook",
