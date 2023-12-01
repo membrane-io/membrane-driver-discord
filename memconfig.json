@@ -735,15 +735,18 @@
         "fields": [
           {
             "name": "count",
-            "type": "Int"
+            "type": "Int",
+            "description": "The total number of times this reaction has been used."
           },
           {
             "name": "me",
-            "type": "Boolean"
+            "type": "Boolean",
+            "description": "Indicates whether the bot has added this reaction to the message."
           },
           {
             "name": "emoji",
-            "type": "Emoji"
+            "type": "Emoji",
+            "description": "The emoji associated with the reaction."
           }
         ],
         "description": ""
