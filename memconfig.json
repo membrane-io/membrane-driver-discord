@@ -169,13 +169,13 @@
             "name": "items",
             "type": "List",
             "ofType": "Member",
-            "description": "The collection of members within this page."
+            "description": "List of Discord members contained in the current page."
           },
           {
             "name": "next",
             "type": "Ref",
             "ofType": "MemberPage",
-            "description": "Link to the subsequent page of members if available."
+            "description": "Reference to the next page of members, if more pages exist."
           }
         ],
         "description": ""
