@@ -33,17 +33,17 @@
           {
             "name": "guilds",
             "type": "GuildCollection",
-            "description": "Collection of guilds accessible by the bot."
+            "description": ""
           },
           {
             "name": "me",
             "type": "User",
-            "description": "The user profile of the bot."
+            "description": ""
           },
           {
             "name": "users",
             "type": "UserCollection",
-            "description": "Collection of users that the bot can interact with."
+            "description": ""
           },
           {
             "name": "parse",
@@ -65,17 +65,17 @@
                 "type": "String"
               }
             ],
-            "description": "Parses the provided string to identify guild references."
+            "description": ""
           },
           {
             "name": "status",
             "type": "String",
-            "description": "Current status of the bot."
+            "description": ""
           },
           {
             "name": "tests",
             "type": "Tests",
-            "description": "Test suite for the bot's functionality."
+            "description": ""
           }
         ],
         "actions": [
@@ -104,7 +104,7 @@
                 "optional": true
               }
             ],
-            "description": "Action to configure the Discord driver."
+            "description": ""
           },
           {
             "name": "followUpWebhook",
@@ -123,10 +123,10 @@
                 "type": "Json"
               }
             ],
-            "description": "Action to send a follow-up message to a Discord webhook."
+            "description": ""
           }
         ],
-        "description": "Root type for the Discord driver."
+        "description": ""
       },
       {
         "name": "MemberCollection",
@@ -140,7 +140,7 @@
                 "type": "String"
               }
             ],
-            "description": "Retrieves a single member by their ID."
+            "description": ""
           },
           {
             "name": "page",
@@ -157,10 +157,10 @@
                 "optional": true
               }
             ],
-            "description": "Provides a paginated collection of members."
+            "description": ""
           }
         ],
-        "description": "Collection of members in a guild."
+        "description": ""
       },
       {
         "name": "MemberPage",
@@ -169,16 +169,16 @@
             "name": "items",
             "type": "List",
             "ofType": "Member",
-            "description": "List of members in the current page."
+            "description": ""
           },
           {
             "name": "next",
             "type": "Ref",
             "ofType": "MemberPage",
-            "description": "Reference to the next page of members."
+            "description": ""
           }
         ],
-        "description": "Page of members in a guild."
+        "description": ""
       },
       {
         "name": "CommandCollection",
@@ -192,7 +192,7 @@
                 "type": "String"
               }
             ],
-            "description": "Retrieves a single command by its ID."
+            "description": ""
           },
           {
             "name": "items",
@@ -200,7 +200,7 @@
             "ofType": "Command"
           }
         ],
-        "description": "Collection of commands in a guild."
+        "description": ""
       },
       {
         "name": "UserCollection",
@@ -214,10 +214,10 @@
                 "type": "String"
               }
             ],
-            "description": "Retrieves a single user by their ID."
+            "description": ""
           }
         ],
-        "description": "Collection of users in a guild."
+        "description": ""
       },
       {
         "name": "GuildCollection",
@@ -231,16 +231,16 @@
                 "type": "String"
               }
             ],
-            "description": "Retrieves a single guild by its ID."
+            "description": ""
           },
           {
             "name": "items",
             "type": "List",
             "ofType": "Guild",
-            "description": "List of all guilds the bot is a member of."
+            "description": ""
           }
         ],
-        "description": "Collection of guilds."
+        "description": ""
       },
       {
         "name": "Guild",
@@ -302,7 +302,7 @@
               },
               {
                 "name": "options",
-                "description": "JSON string of Application Command Option Structure",
+                "description": "",
                 "type": "Json",
                 "optional": true
               },
@@ -312,7 +312,7 @@
                 "optional": true
               }
             ],
-            "description": "Action to create a new command within a guild."
+            "description": ""
           }
         ],
         "events": [
@@ -321,7 +321,7 @@
             "type": "SlashCommand"
           }
         ],
-        "description": "Representation of a guild."
+        "description": ""
       },
       {
         "name": "ChannelCollection",
@@ -335,16 +335,16 @@
                 "type": "String"
               }
             ],
-            "description": "Retrieves a single channel by its ID."
+            "description": ""
           },
           {
             "name": "items",
             "type": "List",
             "ofType": "Channel",
-            "description": "List of all channels within a guild."
+            "description": ""
           }
         ],
-        "description": "Collection of channels in a guild."
+        "description": ""
       },
       {
         "name": "MessageCollection",
@@ -358,7 +358,7 @@
                 "type": "String"
               }
             ],
-            "description": "Retrieves a single message by its ID."
+            "description": ""
           },
           {
             "name": "items",
@@ -386,10 +386,10 @@
                 "optional": true
               }
             ],
-            "description": "Provides a paginated collection of messages."
+            "description": ""
           }
         ],
-        "description": "Collection of messages in a channel."
+        "description": ""
       },
       {
         "name": "Channel",
@@ -458,12 +458,12 @@
             "params": [
               {
                 "name": "content",
-                "description": "Message contents",
+                "description": "",
                 "type": "String"
               },
               {
                 "name": "payload_json",
-                "description": "JSON-encoded body of non-file params, only for multipart/form-data requests.",
+                "description": "",
                 "type": "String",
                 "optional": true
               },
@@ -479,27 +479,27 @@
               },
               {
                 "name": "sticker_ids",
-                "description": "IDs of up to 3 stickers in the server to send in the message",
+                "description": "",
                 "type": "String",
                 "optional": true
               },
               {
                 "name": "components",
-                "description": "Array of components to include with the message",
+                "description": "",
                 "type": "String",
                 "optional": true
               },
               {
                 "name": "embeds",
-                "description": "Embedded rich content (up to 6000 characters)",
+                "description": "",
                 "type": "String",
                 "optional": true
               }
             ],
-            "description": "Action to send a message to a channel in a Discord server."
+            "description": ""
           }
         ],
-        "description": "Representation of a channel."
+        "description": ""
       },
       {
         "name": "Message",
@@ -550,7 +550,7 @@
           {
             "name": "author",
             "type": "User",
-            "description": "Represents the author of the message."
+            "description": ""
           },
           {
             "name": "attachments",
@@ -578,7 +578,7 @@
             "ofType": "Reaction"
           }
         ],
-        "description": "Representation of a message in a channel."
+        "description": ""
       },
       {
         "name": "Member",
@@ -586,7 +586,7 @@
           {
             "name": "user",
             "type": "User",
-            "description": "Represents the user profile linked to the member."
+            "description": ""
           },
           {
             "name": "nick",
@@ -594,13 +594,13 @@
               "primary": true
             },
             "type": "String",
-            "description": "The custom nickname of the member in the server."
+            "description": ""
           },
           {
             "name": "roles",
             "type": "List",
             "ofType": "String",
-            "description": "List of role IDs assigned to the member."
+            "description": ""
           },
           {
             "name": "joined_at",
@@ -608,40 +608,40 @@
               "primary": true
             },
             "type": "String",
-            "description": "Timestamp of when the member joined the server."
+            "description": ""
           },
           {
             "name": "premium_since",
             "type": "String",
-            "description": "The timestamp when the Member started boosting the Guild."
+            "description": ""
           },
           {
             "name": "deaf",
             "type": "Boolean",
-            "description": "Indicates if the member is currently deafened in voice channels."
+            "description": ""
           },
           {
             "name": "mute",
             "type": "Boolean",
-            "description": "Indicates if the member is currently muted in voice channels."
+            "description": ""
           },
           {
             "name": "pending",
             "type": "Boolean",
-            "description": "Shows whether the member has completed the server's membership screening."
+            "description": ""
           },
           {
             "name": "avatar",
             "type": "String",
-            "description": "URL or hash of the member's custom avatar."
+            "description": ""
           },
           {
             "name": "flags",
             "type": "Int",
-            "description": "Account flags for the member, such as staff or partner status."
+            "description": ""
           }
         ],
-        "description": "Representation of a member in a guild."
+        "description": ""
       },
       {
         "name": "User",
@@ -682,7 +682,7 @@
             "type": "Boolean"
           }
         ],
-        "description": "Representation of a user in a guild."
+        "description": ""
       },
       {
         "name": "Reaction",
@@ -700,7 +700,7 @@
             "type": "Emoji"
           }
         ],
-        "description": "Representation of a reaction to a message."
+        "description": ""
       },
       {
         "name": "Command",
@@ -744,7 +744,7 @@
             "type": "Void"
           }
         ],
-        "description": "Representation of a command in a guild."
+        "description": ""
       },
       {
         "name": "Emoji",
@@ -783,7 +783,7 @@
             "ofType": "String"
           }
         ],
-        "description": "Representation of an emoji in a guild."
+        "description": ""
       },
       {
         "name": "SlashCommand",
@@ -805,7 +805,7 @@
             "type": "String"
           }
         ],
-        "description": "Representation of a slash command in a guild."
+        "description": ""
       },
       {
         "name": "CommandOption",
@@ -823,7 +823,7 @@
             "type": "String"
           }
         ],
-        "description": "Representation of a command option in a guild."
+        "description": ""
       },
       {
         "name": "Tests",
@@ -845,7 +845,7 @@
             "type": "Boolean"
           }
         ],
-        "description": "Tests type for the Discord driver."
+        "description": ""
       }
     ]
   },
