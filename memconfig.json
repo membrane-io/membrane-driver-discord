@@ -552,57 +552,68 @@
           },
           {
             "name": "pinned",
-            "type": "Boolean"
+            "type": "Boolean",
+            "description": "Indicates if the message is pinned to the top of the chat."
           },
           {
             "name": "mention_everyone",
-            "type": "Boolean"
+            "type": "Boolean",
+            "description": "Specifies whether the message includes a mention that alerts all users."
           },
           {
             "name": "tts",
-            "type": "Boolean"
+            "type": "Boolean",
+            "description": "Denotes if the message is set to be read aloud through text-to-speech."
           },
           {
             "name": "timestamp",
-            "type": "String"
+            "type": "String",
+            "description": "The creation time of the message formatted as a timestamp."
           },
           {
             "name": "edited_timestamp",
-            "type": "String"
+            "type": "String",
+            "description": "The timestamp of the latest edit to the message, if edited."
           },
           {
             "name": "flags",
-            "type": "Int"
+            "type": "Int",
+            "description": "A set of properties for the message, represented by bitwise flags."
           },
           {
             "name": "author",
             "type": "User",
-            "description": ""
+            "description": "The user who authored the message."
           },
           {
             "name": "attachments",
             "type": "Json",
-            "ofType": "String"
+            "ofType": "String",
+            "description": "Any files or media attached to the message."
           },
           {
             "name": "embeds",
             "type": "Json",
-            "ofType": "String"
+            "ofType": "String",
+            "description": "Rich content elements embedded within the message."
           },
           {
             "name": "mentions",
             "type": "List",
-            "ofType": "User"
+            "ofType": "User",
+            "description": "List of users who are mentioned in the message."
           },
           {
             "name": "mention_roles",
             "type": "Json",
-            "ofType": "String"
+            "ofType": "String",
+            "description": "Roles within the guild mentioned in the message."
           },
           {
             "name": "reactions",
             "type": "List",
-            "ofType": "Reaction"
+            "ofType": "Reaction",
+            "description": "Reactions added to the message by users."
           }
         ],
         "description": ""
