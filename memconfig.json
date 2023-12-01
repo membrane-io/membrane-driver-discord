@@ -191,7 +191,8 @@
                 "name": "id",
                 "type": "String"
               }
-            ]
+            ],
+            "description": "Retrieves a single command by its ID."
           },
           {
             "name": "items",
@@ -229,7 +230,8 @@
                 "name": "id",
                 "type": "String"
               }
-            ]
+            ],
+            "description": "Retrieves a single guild by its ID."
           },
           {
             "name": "items",
@@ -332,7 +334,8 @@
                 "name": "id",
                 "type": "String"
               }
-            ]
+            ],
+            "description": "Retrieves a single channel by its ID."
           },
           {
             "name": "items",
@@ -354,7 +357,8 @@
                 "name": "id",
                 "type": "String"
               }
-            ]
+            ],
+            "description": "Retrieves a single message by its ID."
           },
           {
             "name": "items",
@@ -545,7 +549,8 @@
           },
           {
             "name": "author",
-            "type": "User"
+            "type": "User",
+            "description": "Represents the author of the message."
           },
           {
             "name": "attachments",
