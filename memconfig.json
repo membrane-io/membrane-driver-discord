@@ -901,19 +901,23 @@
         "actions": [
           {
             "name": "testGetGuilds",
-            "type": "Boolean"
+            "type": "Boolean",
+            "description": "Tests the retrieval of guilds that the bot is a member of."
           },
           {
             "name": "ping",
-            "type": "Boolean"
+            "type": "Boolean",
+            "description": "Checks the responsiveness of the Discord bot."
           },
           {
             "name": "testGetUsers",
-            "type": "Boolean"
+            "type": "Boolean",
+            "description": "Validates the ability of the bot to fetch user information."
           },
           {
             "name": "testGetChannels",
-            "type": "Boolean"
+            "type": "Boolean",
+            "description": "Assesses the bot's function of gathering channel details."
           }
         ],
         "description": ""
