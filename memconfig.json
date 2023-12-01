@@ -33,17 +33,17 @@
           {
             "name": "guilds",
             "type": "GuildCollection",
-            "description": ""
+            "description": "A collection of guilds (servers) that the bot is currently a member of."
           },
           {
             "name": "me",
             "type": "User",
-            "description": ""
+            "description": "Information about the user account associated with the bot."
           },
           {
             "name": "users",
             "type": "UserCollection",
-            "description": ""
+            "description": "A collection of users that the bot can interact with."
           },
           {
             "name": "parse",
@@ -65,17 +65,17 @@
                 "type": "String"
               }
             ],
-            "description": ""
+            "description": "Parses the provided name and value into a Discord guild reference."
           },
           {
             "name": "status",
             "type": "String",
-            "description": ""
+            "description": "The current status of the Discord bot."
           },
           {
             "name": "tests",
             "type": "Tests",
-            "description": ""
+            "description": "A set of tests to verify the bot's functionality."
           }
         ],
         "actions": [
@@ -336,13 +336,13 @@
                 "type": "String"
               }
             ],
-            "description": ""
+            "description": "Retrieves a single channel by its unique Discord ID."
           },
           {
             "name": "items",
             "type": "List",
             "ofType": "Channel",
-            "description": ""
+            "description": "A list of all channels in a guild or direct message channels that the bot has access to."
           }
         ],
         "description": ""
@@ -359,7 +359,7 @@
                 "type": "String"
               }
             ],
-            "description": ""
+            "description": "Retrieves a specific message by its ID."
           },
           {
             "name": "items",
@@ -387,7 +387,7 @@
                 "optional": true
               }
             ],
-            "description": ""
+            "description": "Retrieves a list of messages, optionally limited by the provided parameters like limit, around, before, and after."
           }
         ],
         "description": ""
@@ -497,7 +497,7 @@
                 "optional": true
               }
             ],
-            "description": ""
+            "description": "Sends a message to the channel, with optional parameters such as content, payload_json, tts, flags, sticker_ids, components, and embeds."
           }
         ],
         "description": ""
