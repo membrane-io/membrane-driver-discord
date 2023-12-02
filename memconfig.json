@@ -33,17 +33,17 @@
           {
             "name": "guilds",
             "type": "GuildCollection",
-            "description": "Collection of Discord guilds where the bot is active."
+            "description": ""
           },
           {
             "name": "me",
             "type": "User",
-            "description": "Represents the bot's user profile within Discord."
+            "description": ""
           },
           {
             "name": "users",
             "type": "UserCollection",
-            "description": "Accumulated collection of users that the bot has encountered."
+            "description": ""
           },
           {
             "name": "parse",
@@ -65,17 +65,17 @@
                 "type": "String"
               }
             ],
-            "description": "Interprets the provided name and value as a guild reference in Discord."
+            "description": ""
           },
           {
             "name": "status",
             "type": "String",
-            "description": "Reflects the bot's current operational status."
+            "description": ""
           },
           {
             "name": "tests",
             "type": "Tests",
-            "description": "Comprises tests for ensuring the bot's correct functionality."
+            "description": ""
           }
         ],
         "actions": [
@@ -104,7 +104,7 @@
                 "optional": true
               }
             ],
-            "description": "Sets up the necessary configurations for the Discord Bot such as clientId, clientSecret, publicKey, and token."
+            "description": ""
           },
           {
             "name": "followUpWebhook",
@@ -123,7 +123,7 @@
                 "type": "Json"
               }
             ],
-            "description": "Sends a follow-up message to an interaction using a webhook."
+            "description": ""
           }
         ],
         "description": ""
@@ -140,7 +140,7 @@
                 "type": "String"
               }
             ],
-            "description": "Retrieves a single member based on their unique Discord ID."
+            "description": ""
           },
           {
             "name": "page",
@@ -157,7 +157,7 @@
                 "optional": true
               }
             ],
-            "description": "Obtains a paginated list of members, with options to limit the batch size and specify the starting point."
+            "description": ""
           }
         ],
         "description": ""
@@ -169,13 +169,13 @@
             "name": "items",
             "type": "List",
             "ofType": "Member",
-            "description": "List of Discord members contained in the current page."
+            "description": ""
           },
           {
             "name": "next",
             "type": "Ref",
             "ofType": "MemberPage",
-            "description": "Reference to the next page of members, if more pages exist."
+            "description": ""
           }
         ],
         "description": ""
@@ -192,13 +192,13 @@
                 "type": "String"
               }
             ],
-            "description": "Retrieves a specific command using its Discord-assigned ID."
+            "description": ""
           },
           {
             "name": "items",
             "type": "List",
             "ofType": "Command",
-            "description": "A complete list of commands that the Discord bot can execute."
+            "description": ""
           }
         ],
         "description": ""
@@ -215,7 +215,7 @@
                 "type": "String"
               }
             ],
-            "description": "Retrieves user information for a single Discord user by their ID."
+            "description": ""
           }
         ],
         "description": ""
@@ -232,13 +232,13 @@
                 "type": "String"
               }
             ],
-            "description": "Acquires detailed information for a specific guild using its unique Discord ID."
+            "description": ""
           },
           {
             "name": "items",
             "type": "List",
             "ofType": "Guild",
-            "description": "Aggregates all guilds for which the bot is a member."
+            "description": ""
           }
         ],
         "description": ""
@@ -249,7 +249,7 @@
           {
             "name": "id",
             "type": "String",
-            "description": "The Discord-assigned unique identifier of the guild."
+            "description": ""
           },
           {
             "name": "name",
@@ -257,43 +257,43 @@
             "hints": {
               "primary": true
             },
-            "description": "Officially recognized name of the Discord guild."
+            "description": ""
           },
           {
             "name": "icon",
             "type": "String",
-            "description": "Link to the image used as the guild's icon."
+            "description": ""
           },
           {
             "name": "owner",
             "type": "Boolean",
-            "description": "Flag to determine if the bot owns the guild."
+            "description": ""
           },
           {
             "name": "permissions",
             "type": "Int",
-            "description": "The set of permissions the bot possesses in this guild, expressed as an integer value."
+            "description": ""
           },
           {
             "name": "features",
             "type": "List",
             "ofType": "String",
-            "description": "List of unique features that the guild offers."
+            "description": ""
           },
           {
             "name": "channels",
             "type": "ChannelCollection",
-            "description": "All the channels available in the guild."
+            "description": ""
           },
           {
             "name": "commands",
             "type": "CommandCollection",
-            "description": "A compilation of all bot commands that are usable within this guild."
+            "description": ""
           },
           {
             "name": "members",
             "type": "MemberCollection",
-            "description": "An array of members that are part of the guild."
+            "description": ""
           }
         ],
         "actions": [
@@ -322,7 +322,7 @@
                 "optional": true
               }
             ],
-            "description": "Creates a new command in the guild with the given details, including name, description, options, and command type."
+            "description": ""
           }
         ],
         "events": [
@@ -345,13 +345,13 @@
                 "type": "String"
               }
             ],
-            "description": "Retrieves a single channel by its unique Discord identifier."
+            "description": ""
           },
           {
             "name": "items",
             "type": "List",
             "ofType": "Channel",
-            "description": "An array of all channels that the bot can access, including text, voice, and DM channels."
+            "description": ""
           }
         ],
         "description": ""
@@ -368,7 +368,7 @@
                 "type": "String"
               }
             ],
-            "description": "Acquires information for an individual message by its Discord ID."
+            "description": ""
           },
           {
             "name": "items",
@@ -396,7 +396,7 @@
                 "optional": true
               }
             ],
-            "description": "Retrieves a collection of messages with optional parameters for limiting number and specifying position."
+            "description": ""
           }
         ],
         "description": ""
@@ -407,17 +407,17 @@
           {
             "name": "id",
             "type": "String",
-            "description": "The Discord-given unique ID for this channel."
+            "description": ""
           },
           {
             "name": "last_message_id",
             "type": "String",
-            "description": "Identifier for the latest message sent in this channel."
+            "description": ""
           },
           {
             "name": "rate_limit_per_user",
             "type": "Int",
-            "description": "Amount of time a user must wait before sending another message in this channel (rate limiting)."
+            "description": ""
           },
           {
             "name": "name",
@@ -425,53 +425,53 @@
             "hints": {
               "primary": true
             },
-            "description": "The name assigned to this channel within Discord."
+            "description": ""
           },
           {
             "name": "type",
             "type": "Int",
-            "description": "Indicates the channel category, such as text, voice, or category channel."
+            "description": ""
           },
           {
             "name": "position",
             "type": "Int",
-            "description": "The placement of this channel in the server's channel hierarchy."
+            "description": ""
           },
           {
             "name": "flags",
             "type": "Int",
-            "description": "Special attributes and functionalities of this channel identified by flag bits."
+            "description": ""
           },
           {
             "name": "nsfw",
             "type": "Boolean",
-            "description": "Whether the channel contains content that is inappropriate for underage users."
+            "description": ""
           },
           {
             "name": "parend_id",
             "type": "String",
-            "description": "Discord ID of the channel's parent category, if any."
+            "description": ""
           },
           {
             "name": "topic",
             "type": "String",
-            "description": "The subject or specific purpose of the channel outlined in a brief description."
+            "description": ""
           },
           {
             "name": "guild_id",
             "type": "String",
-            "description": "Identifier of the guild in which this channel resides."
+            "description": ""
           },
           {
             "name": "permissions_overwrites",
             "type": "List",
             "ofType": "String",
-            "description": "A collection of permissions adjustments specific to this channel."
+            "description": ""
           },
           {
             "name": "messages",
             "type": "MessageCollection",
-            "description": "Provides access to a searchable collection of messages in the channel."
+            "description": ""
           }
         ],
         "actions": [
@@ -519,7 +519,7 @@
                 "optional": true
               }
             ],
-            "description": "Sends a message to the channel, with optional parameters such as content, payload_json, tts, flags, sticker_ids, components, and embeds."
+            "description": ""
           }
         ],
         "description": ""
@@ -530,12 +530,12 @@
           {
             "name": "id",
             "type": "String",
-            "description": "The unique identifier of the message."
+            "description": ""
           },
           {
             "name": "type",
             "type": "Int",
-            "description": "Defines the type of message."
+            "description": ""
           },
           {
             "name": "content",
@@ -543,77 +543,77 @@
             "hints": {
               "primary": true
             },
-            "description": "The textual content of the message."
+            "description": ""
           },
           {
             "name": "channel_id",
             "type": "String",
-            "description": "Identifier of the channel where the message was sent."
+            "description": ""
           },
           {
             "name": "pinned",
             "type": "Boolean",
-            "description": "Indicates if the message is pinned to the top of the chat."
+            "description": ""
           },
           {
             "name": "mention_everyone",
             "type": "Boolean",
-            "description": "Specifies whether the message includes a mention that alerts all users."
+            "description": ""
           },
           {
             "name": "tts",
             "type": "Boolean",
-            "description": "Denotes if the message is set to be read aloud through text-to-speech."
+            "description": ""
           },
           {
             "name": "timestamp",
             "type": "String",
-            "description": "The creation time of the message formatted as a timestamp."
+            "description": ""
           },
           {
             "name": "edited_timestamp",
             "type": "String",
-            "description": "The timestamp of the latest edit to the message, if edited."
+            "description": ""
           },
           {
             "name": "flags",
             "type": "Int",
-            "description": "A set of properties for the message, represented by bitwise flags."
+            "description": ""
           },
           {
             "name": "author",
             "type": "User",
-            "description": "The user who authored the message."
+            "description": ""
           },
           {
             "name": "attachments",
             "type": "Json",
             "ofType": "String",
-            "description": "Any files or media attached to the message."
+            "description": ""
           },
           {
             "name": "embeds",
             "type": "Json",
             "ofType": "String",
-            "description": "Rich content elements embedded within the message."
+            "description": ""
           },
           {
             "name": "mentions",
             "type": "List",
             "ofType": "User",
-            "description": "List of users who are mentioned in the message."
+            "description": ""
           },
           {
             "name": "mention_roles",
             "type": "Json",
             "ofType": "String",
-            "description": "Roles within the guild mentioned in the message."
+            "description": ""
           },
           {
             "name": "reactions",
             "type": "List",
             "ofType": "Reaction",
-            "description": "Reactions added to the message by users."
+            "description": ""
           }
         ],
         "description": ""
@@ -624,7 +624,7 @@
           {
             "name": "user",
             "type": "User",
-            "description": "Discord user information associated with this member."
+            "description": ""
           },
           {
             "name": "nick",
@@ -632,13 +632,13 @@
               "primary": true
             },
             "type": "String",
-            "description": "The nickname of the member within the guild."
+            "description": ""
           },
           {
             "name": "roles",
             "type": "List",
             "ofType": "String",
-            "description": "List of role identifiers that the member has in the guild."
+            "description": ""
           },
           {
             "name": "joined_at",
@@ -646,37 +646,37 @@
               "primary": true
             },
             "type": "String",
-            "description": "The timestamp of when the member joined the guild."
+            "description": ""
           },
           {
             "name": "premium_since",
             "type": "String",
-            "description": "Indicates when the member started boosting the guild, if applicable."
+            "description": ""
           },
           {
             "name": "deaf",
             "type": "Boolean",
-            "description": "Whether the member is deafened in voice channels within the guild."
+            "description": ""
           },
           {
             "name": "mute",
             "type": "Boolean",
-            "description": "Whether the member is muted in voice channels in the guild."
+            "description": ""
           },
           {
             "name": "pending",
             "type": "Boolean",
-            "description": "Indicates if the member has passed the guild's membership screening."
+            "description": ""
           },
           {
             "name": "avatar",
             "type": "String",
-            "description": "URL to the member's custom guild avatar if set."
+            "description": ""
           },
           {
             "name": "flags",
             "type": "Int",
-            "description": "Bitwise flags that represent various member attributes and permissions."
+            "description": ""
           }
         ],
         "description": ""
@@ -687,7 +687,7 @@
           {
             "name": "id",
             "type": "String",
-            "description": "Discord's unique identifier for the user."
+            "description": ""
           },
           {
             "name": "username",
@@ -695,37 +695,37 @@
             "hints": {
               "primary": true
             },
-            "description": "The user's chosen username on Discord."
+            "description": ""
           },
           {
             "name": "display_name",
             "type": "String",
-            "description": "The name shown in the user's profile, which may include the nickname if set."
+            "description": ""
           },
           {
             "name": "avatar",
             "type": "String",
-            "description": "URL to the user's profile image or avatar."
+            "description": ""
           },
           {
             "name": "avatar_decoration",
             "type": "String",
-            "description": "Additional visual elements or frames around the user's avatar."
+            "description": ""
           },
           {
             "name": "discriminator",
             "type": "String",
-            "description": "A four-digit number that helps to differentiate users with the same username."
+            "description": ""
           },
           {
             "name": "public_flags",
             "type": "Int",
-            "description": "Flags representing the user's achievements and features on Discord."
+            "description": ""
           },
           {
             "name": "bot",
             "type": "Boolean",
-            "description": "Indicates whether the user is a Discord bot account."
+            "description": ""
           }
         ],
         "description": ""
@@ -736,17 +736,17 @@
           {
             "name": "count",
             "type": "Int",
-            "description": "The total number of times this reaction has been used."
+            "description": ""
           },
           {
             "name": "me",
             "type": "Boolean",
-            "description": "Indicates whether the bot has added this reaction to the message."
+            "description": ""
           },
           {
             "name": "emoji",
             "type": "Emoji",
-            "description": "The emoji associated with the reaction."
+            "description": ""
           }
         ],
         "description": ""
@@ -760,38 +760,38 @@
             "hints": {
               "primary": true
             },
-            "description": "The name used to invoke the command within Discord."
+            "description": ""
           },
           {
             "name": "description",
             "type": "String",
-            "description": "A brief summary of what the command does."
+            "description": ""
           },
           {
             "name": "default_member_permissions",
             "type": "String",
-            "description": "Permissions required for a guild member to use this command by default."
+            "description": ""
           },
           {
             "name": "default_permission",
             "type": "Boolean",
-            "description": "Indicates whether the command is enabled by default when the bot is added to a guild."
+            "description": ""
           },
           {
             "name": "type",
             "type": "Int",
-            "description": "Determines the command's type, such as chat input, user command, or message command."
+            "description": ""
           },
           {
             "name": "nsfw",
             "type": "Boolean",
-            "description": "States if the command is marked as 'not safe for work' and should be limited to NSFW channels."
+            "description": ""
           },
           {
             "name": "options",
             "type": "List",
             "ofType": "String",
-            "description": "A collection of options or parameters that can be used with the command."
+            "description": ""
           }
         ],
         "actions": [
@@ -808,43 +808,43 @@
           {
             "name": "id",
             "type": "String",
-            "description": "The unique identifier assigned to the emoji by Discord."
+            "description": ""
           },
           {
             "name": "user",
             "type": "User",
-            "description": "The user who added this emoji to the guild."
+            "description": ""
           },
           {
             "name": "name",
             "type": "String",
-            "description": "The name of the emoji as it appears in Discord."
+            "description": ""
           },
           {
             "name": "animated",
             "type": "Boolean",
-            "description": "Reflects whether the emoji is animated."
+            "description": ""
           },
           {
             "name": "available",
             "type": "Boolean",
-            "description": "Indicates if the emoji is currently available to be used in the guild."
+            "description": ""
           },
           {
             "name": "require_colons",
             "type": "Boolean",
-            "description": "Specifies if colons are needed to use the emoji in Discord messages."
+            "description": ""
           },
           {
             "name": "managed",
             "type": "Boolean",
-            "description": "Determines if the emoji is managed by an integration or bot."
+            "description": ""
           },
           {
             "name": "roles",
             "type": "List",
             "ofType": "String",
-            "description": "A list of role IDs that are allowed to use this emoji."
+            "description": ""
           }
         ],
         "description": ""
@@ -855,22 +855,22 @@
           {
             "name": "user",
             "type": "User",
-            "description": "Information about the user who invoked the slash command."
+            "description": ""
           },
           {
             "name": "application_id",
             "type": "String",
-            "description": "The unique identifier of the Discord application."
+            "description": ""
           },
           {
             "name": "token",
             "type": "String",
-            "description": "A session token specific to this interaction."
+            "description": ""
           },
           {
             "name": "options",
             "type": "String",
-            "description": "A string containing the parameters and values passed with the slash command."
+            "description": ""
           }
         ],
         "description": ""
@@ -881,17 +881,17 @@
           {
             "name": "name",
             "type": "String",
-            "description": "The name of the option as defined in the slash command."
+            "description": ""
           },
           {
             "name": "type",
             "type": "String",
-            "description": "The data type of the option, such as String, Integer, Boolean, etc."
+            "description": ""
           },
           {
             "name": "value",
             "type": "String",
-            "description": "The value provided by the user for this option."
+            "description": ""
           }
         ],
         "description": ""
@@ -902,22 +902,22 @@
           {
             "name": "testGetGuilds",
             "type": "Boolean",
-            "description": "Tests the retrieval of guilds that the bot is a member of."
+            "description": ""
           },
           {
             "name": "ping",
             "type": "Boolean",
-            "description": "Checks the responsiveness of the Discord bot."
+            "description": ""
           },
           {
             "name": "testGetUsers",
             "type": "Boolean",
-            "description": "Validates the ability of the bot to fetch user information."
+            "description": ""
           },
           {
             "name": "testGetChannels",
             "type": "Boolean",
-            "description": "Assesses the bot's function of gathering channel details."
+            "description": ""
           }
         ],
         "description": ""
