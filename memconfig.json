@@ -1,931 +1,114 @@
 {
-  "expressions": {
-    "guild": {
-      "description": "Guild",
-      "type": "text",
-      "searchIn": "https://discord.com",
-      "regex": "data-list-item-id=\"guildsnav___([0-9]{18})+"
-    },
-    "channel": {
-      "description": "Channel",
-      "type": "url",
-      "searchIn": "https://discord.com",
-      "regex": "https://discord.com/channels/([0-9]{18})+/([0-9]{18})+"
-    },
-    "user": {
-      "description": "User",
-      "type": "text",
-      "searchIn": "https://discord.com",
-      "regex": "/avatars/[0-9]+"
-    },
-    "message": {
-      "description": "Channel Message",
-      "type": "text",
-      "searchIn": "https://discord.com",
-      "regex": "id=\"chat-messages-[0-9]+-[0-9]+"
-    }
-  },
   "schema": {
     "types": [
       {
         "name": "Root",
-        "fields": [
+        "description": "Manages scheduling and notifications for event reminders.",
+        "actions": [
           {
-            "name": "guilds",
-            "type": "GuildCollection",
-            "description": ""
-          },
-          {
-            "name": "me",
-            "type": "User",
-            "description": ""
-          },
-          {
-            "name": "users",
-            "type": "UserCollection",
-            "description": ""
-          },
-          {
-            "name": "parse",
-            "type": "List",
-            "hints": {
-              "hidden": true
-            },
-            "ofType": {
-              "type": "Ref",
-              "ofType": "Guild"
-            },
+            "name": "create",
+            "type": "Void",
             "params": [
               {
-                "name": "name",
-                "type": "String"
+                "name": "text",
+                "type": "String",
+                "description": "The content of the reminder to be created."
               },
               {
-                "name": "value",
-                "type": "String"
+                "name": "atDate",
+                "type": "String",
+                "optional": true,
+                "description": "The specific date and time when the reminder should trigger."
+              },
+              {
+                "name": "repeat",
+                "type": "Boolean",
+                "optional": true,
+                "description": "Indicates whether the reminder should repeat at regular intervals."
               }
             ],
-            "description": ""
+            "description": "Creates a new event reminder with optional repetition."
+          },
+          {
+            "name": "sendNotifications",
+            "type": "Void",
+            "params": [
+              {
+                "name": "id",
+                "type": "Int",
+                "description": "Unique identifier of the reminder for which to send notifications."
+              }
+            ],
+            "description": "Sends out notifications for the specified reminder ID."
+          }
+        ],
+        "fields": [
+          {
+            "name": "find",
+            "type": "Reminder",
+            "params": [
+              {
+                "name": "id",
+                "type": "Int",
+                "ofType": "Reminder",
+                "description": "The ID to search for a specific event reminder."
+              }
+            ],
+            "description": "Retrieves a reminder by its unique identifier."
+          },
+          {
+            "name": "reminders",
+            "type": "List",
+            "ofType": "Reminder",
+            "description": "Collection of all scheduled event reminders."
           },
           {
             "name": "status",
             "type": "String",
-            "description": ""
-          },
-          {
-            "name": "tests",
-            "type": "Tests",
-            "description": ""
+            "description": "The current operational status of the event reminder system."
           }
-        ],
-        "actions": [
-          {
-            "name": "configure",
-            "type": "Void",
-            "params": [
-              {
-                "name": "clientId",
-                "type": "String",
-                "optional": true
-              },
-              {
-                "name": "clientSecret",
-                "type": "String",
-                "optional": true
-              },
-              {
-                "name": "publicKey",
-                "type": "String",
-                "optional": true
-              },
-              {
-                "name": "token",
-                "type": "String",
-                "optional": true
-              }
-            ],
-            "description": ""
-          },
-          {
-            "name": "followUpWebhook",
-            "type": "Void",
-            "params": [
-              {
-                "name": "application_id",
-                "type": "String"
-              },
-              {
-                "name": "token",
-                "type": "String"
-              },
-              {
-                "name": "message",
-                "type": "Json"
-              }
-            ],
-            "description": ""
-          }
-        ],
-        "description": ""
+        ]
       },
       {
-        "name": "MemberCollection",
+        "name": "Reminder",
         "fields": [
           {
-            "name": "one",
-            "type": "Member",
-            "params": [
-              {
-                "name": "id",
-                "type": "String"
-              }
-            ],
-            "description": ""
+            "name": "text",
+            "hints": {
+              "primary": true
+            },
+            "type": "String",
+            "description": "The content or description of the reminder."
           },
-          {
-            "name": "page",
-            "type": "MemberPage",
-            "params": [
-              {
-                "name": "limit",
-                "type": "Int",
-                "optional": true
-              },
-              {
-                "name": "after",
-                "type": "String",
-                "optional": true
-              }
-            ],
-            "description": ""
-          }
-        ],
-        "description": ""
-      },
-      {
-        "name": "MemberPage",
-        "fields": [
-          {
-            "name": "items",
-            "type": "List",
-            "ofType": "Member",
-            "description": ""
-          },
-          {
-            "name": "next",
-            "type": "Ref",
-            "ofType": "MemberPage",
-            "description": ""
-          }
-        ],
-        "description": ""
-      },
-      {
-        "name": "CommandCollection",
-        "fields": [
-          {
-            "name": "one",
-            "type": "Command",
-            "params": [
-              {
-                "name": "id",
-                "type": "String"
-              }
-            ],
-            "description": ""
-          },
-          {
-            "name": "items",
-            "type": "List",
-            "ofType": "Command",
-            "description": ""
-          }
-        ],
-        "description": ""
-      },
-      {
-        "name": "UserCollection",
-        "fields": [
-          {
-            "name": "one",
-            "type": "User",
-            "params": [
-              {
-                "name": "id",
-                "type": "String"
-              }
-            ],
-            "description": ""
-          }
-        ],
-        "description": ""
-      },
-      {
-        "name": "GuildCollection",
-        "fields": [
-          {
-            "name": "one",
-            "type": "Guild",
-            "params": [
-              {
-                "name": "id",
-                "type": "String"
-              }
-            ],
-            "description": ""
-          },
-          {
-            "name": "items",
-            "type": "List",
-            "ofType": "Guild",
-            "description": ""
-          }
-        ],
-        "description": ""
-      },
-      {
-        "name": "Guild",
-        "fields": [
           {
             "name": "id",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "name",
-            "type": "String",
-            "hints": {
-              "primary": true
-            },
-            "description": ""
-          },
-          {
-            "name": "icon",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "owner",
-            "type": "Boolean",
-            "description": ""
-          },
-          {
-            "name": "permissions",
             "type": "Int",
-            "description": ""
+            "description": "The unique identifier of the reminder."
           },
           {
-            "name": "features",
-            "type": "List",
-            "ofType": "String",
-            "description": ""
-          },
-          {
-            "name": "channels",
-            "type": "ChannelCollection",
-            "description": ""
-          },
-          {
-            "name": "commands",
-            "type": "CommandCollection",
-            "description": ""
-          },
-          {
-            "name": "members",
-            "type": "MemberCollection",
-            "description": ""
-          }
-        ],
-        "actions": [
-          {
-            "name": "createCommand",
-            "type": "Void",
-            "params": [
-              {
-                "name": "name",
-                "type": "String"
-              },
-              {
-                "name": "description",
-                "type": "String",
-                "optional": true
-              },
-              {
-                "name": "options",
-                "description": "",
-                "type": "Json",
-                "optional": true
-              },
-              {
-                "name": "type",
-                "type": "Int",
-                "optional": true
-              }
-            ],
-            "description": ""
-          }
-        ],
-        "events": [
-          {
-            "name": "onSlashCommand",
-            "type": "SlashCommand"
-          }
-        ],
-        "description": ""
-      },
-      {
-        "name": "ChannelCollection",
-        "fields": [
-          {
-            "name": "one",
-            "type": "Channel",
-            "params": [
-              {
-                "name": "id",
-                "type": "String"
-              }
-            ],
-            "description": ""
-          },
-          {
-            "name": "items",
-            "type": "List",
-            "ofType": "Channel",
-            "description": ""
-          }
-        ],
-        "description": ""
-      },
-      {
-        "name": "MessageCollection",
-        "fields": [
-          {
-            "name": "one",
-            "type": "Message",
-            "params": [
-              {
-                "name": "id",
-                "type": "String"
-              }
-            ],
-            "description": ""
-          },
-          {
-            "name": "items",
-            "type": "List",
-            "ofType": "Message",
-            "params": [
-              {
-                "name": "limit",
-                "type": "Int",
-                "optional": true
-              },
-              {
-                "name": "around",
-                "type": "String",
-                "optional": true
-              },
-              {
-                "name": "before",
-                "type": "String",
-                "optional": true
-              },
-              {
-                "name": "after",
-                "type": "String",
-                "optional": true
-              }
-            ],
-            "description": ""
-          }
-        ],
-        "description": ""
-      },
-      {
-        "name": "Channel",
-        "fields": [
-          {
-            "name": "id",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "last_message_id",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "rate_limit_per_user",
-            "type": "Int",
-            "description": ""
-          },
-          {
-            "name": "name",
-            "type": "String",
-            "hints": {
-              "primary": true
-            },
-            "description": ""
-          },
-          {
-            "name": "type",
-            "type": "Int",
-            "description": ""
-          },
-          {
-            "name": "position",
-            "type": "Int",
-            "description": ""
-          },
-          {
-            "name": "flags",
-            "type": "Int",
-            "description": ""
-          },
-          {
-            "name": "nsfw",
+            "name": "repeat",
             "type": "Boolean",
-            "description": ""
+            "description": "Indicates whether the reminder is set to repeat."
           },
           {
-            "name": "parend_id",
+            "name": "atDate",
             "type": "String",
-            "description": ""
-          },
-          {
-            "name": "topic",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "guild_id",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "permissions_overwrites",
-            "type": "List",
-            "ofType": "String",
-            "description": ""
-          },
-          {
-            "name": "messages",
-            "type": "MessageCollection",
-            "description": ""
-          }
-        ],
-        "actions": [
-          {
-            "name": "sendMessage",
-            "type": "Void",
-            "params": [
-              {
-                "name": "content",
-                "description": "",
-                "type": "String"
-              },
-              {
-                "name": "payload_json",
-                "description": "",
-                "type": "String",
-                "optional": true
-              },
-              {
-                "name": "tts",
-                "type": "Boolean",
-                "optional": true
-              },
-              {
-                "name": "flags",
-                "type": "Int",
-                "optional": true
-              },
-              {
-                "name": "sticker_ids",
-                "description": "",
-                "type": "String",
-                "optional": true
-              },
-              {
-                "name": "components",
-                "description": "",
-                "type": "String",
-                "optional": true
-              },
-              {
-                "name": "embeds",
-                "description": "",
-                "type": "String",
-                "optional": true
-              }
-            ],
-            "description": ""
-          }
-        ],
-        "description": ""
-      },
-      {
-        "name": "Message",
-        "fields": [
-          {
-            "name": "id",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "type",
-            "type": "Int",
-            "description": ""
-          },
-          {
-            "name": "content",
-            "type": "String",
-            "hints": {
-              "primary": true
-            },
-            "description": ""
-          },
-          {
-            "name": "channel_id",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "pinned",
-            "type": "Boolean",
-            "description": ""
-          },
-          {
-            "name": "mention_everyone",
-            "type": "Boolean",
-            "description": ""
-          },
-          {
-            "name": "tts",
-            "type": "Boolean",
-            "description": ""
-          },
-          {
-            "name": "timestamp",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "edited_timestamp",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "flags",
-            "type": "Int",
-            "description": ""
-          },
-          {
-            "name": "author",
-            "type": "User",
-            "description": ""
-          },
-          {
-            "name": "attachments",
-            "type": "Json",
-            "ofType": "String",
-            "description": ""
-          },
-          {
-            "name": "embeds",
-            "type": "Json",
-            "ofType": "String",
-            "description": ""
-          },
-          {
-            "name": "mentions",
-            "type": "List",
-            "ofType": "User",
-            "description": ""
-          },
-          {
-            "name": "mention_roles",
-            "type": "Json",
-            "ofType": "String",
-            "description": ""
-          },
-          {
-            "name": "reactions",
-            "type": "List",
-            "ofType": "Reaction",
-            "description": ""
-          }
-        ],
-        "description": ""
-      },
-      {
-        "name": "Member",
-        "fields": [
-          {
-            "name": "user",
-            "type": "User",
-            "description": ""
-          },
-          {
-            "name": "nick",
-            "hints": {
-              "primary": true
-            },
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "roles",
-            "type": "List",
-            "ofType": "String",
-            "description": ""
-          },
-          {
-            "name": "joined_at",
-            "hints": {
-              "primary": true
-            },
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "premium_since",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "deaf",
-            "type": "Boolean",
-            "description": ""
-          },
-          {
-            "name": "mute",
-            "type": "Boolean",
-            "description": ""
-          },
-          {
-            "name": "pending",
-            "type": "Boolean",
-            "description": ""
-          },
-          {
-            "name": "avatar",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "flags",
-            "type": "Int",
-            "description": ""
-          }
-        ],
-        "description": ""
-      },
-      {
-        "name": "User",
-        "fields": [
-          {
-            "name": "id",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "username",
-            "type": "String",
-            "hints": {
-              "primary": true
-            },
-            "description": ""
-          },
-          {
-            "name": "display_name",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "avatar",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "avatar_decoration",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "discriminator",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "public_flags",
-            "type": "Int",
-            "description": ""
-          },
-          {
-            "name": "bot",
-            "type": "Boolean",
-            "description": ""
-          }
-        ],
-        "description": ""
-      },
-      {
-        "name": "Reaction",
-        "fields": [
-          {
-            "name": "count",
-            "type": "Int",
-            "description": ""
-          },
-          {
-            "name": "me",
-            "type": "Boolean",
-            "description": ""
-          },
-          {
-            "name": "emoji",
-            "type": "Emoji",
-            "description": ""
-          }
-        ],
-        "description": ""
-      },
-      {
-        "name": "Command",
-        "fields": [
-          {
-            "name": "name",
-            "type": "String",
-            "hints": {
-              "primary": true
-            },
-            "description": ""
-          },
-          {
-            "name": "description",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "default_member_permissions",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "default_permission",
-            "type": "Boolean",
-            "description": ""
-          },
-          {
-            "name": "type",
-            "type": "Int",
-            "description": ""
-          },
-          {
-            "name": "nsfw",
-            "type": "Boolean",
-            "description": ""
-          },
-          {
-            "name": "options",
-            "type": "List",
-            "ofType": "String",
-            "description": ""
+            "description": "The specific date and time when the reminder is scheduled."
           }
         ],
         "actions": [
           {
             "name": "delete",
-            "type": "Void"
+            "type": "Void",
+            "description": "Action to delete the reminder."
           }
         ],
-        "description": ""
-      },
-      {
-        "name": "Emoji",
-        "fields": [
-          {
-            "name": "id",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "user",
-            "type": "User",
-            "description": ""
-          },
-          {
-            "name": "name",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "animated",
-            "type": "Boolean",
-            "description": ""
-          },
-          {
-            "name": "available",
-            "type": "Boolean",
-            "description": ""
-          },
-          {
-            "name": "require_colons",
-            "type": "Boolean",
-            "description": ""
-          },
-          {
-            "name": "managed",
-            "type": "Boolean",
-            "description": ""
-          },
-          {
-            "name": "roles",
-            "type": "List",
-            "ofType": "String",
-            "description": ""
-          }
-        ],
-        "description": ""
-      },
-      {
-        "name": "SlashCommand",
-        "fields": [
-          {
-            "name": "user",
-            "type": "User",
-            "description": ""
-          },
-          {
-            "name": "application_id",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "token",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "options",
-            "type": "String",
-            "description": ""
-          }
-        ],
-        "description": ""
-      },
-      {
-        "name": "CommandOption",
-        "fields": [
-          {
-            "name": "name",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "type",
-            "type": "String",
-            "description": ""
-          },
-          {
-            "name": "value",
-            "type": "String",
-            "description": ""
-          }
-        ],
-        "description": ""
-      },
-      {
-        "name": "Tests",
-        "actions": [
-          {
-            "name": "testGetGuilds",
-            "type": "Boolean",
-            "description": ""
-          },
-          {
-            "name": "ping",
-            "type": "Boolean",
-            "description": ""
-          },
-          {
-            "name": "testGetUsers",
-            "type": "Boolean",
-            "description": ""
-          },
-          {
-            "name": "testGetChannels",
-            "type": "Boolean",
-            "description": ""
-          }
-        ],
-        "description": ""
+        "description": "Represents a reminder for an event."
       }
     ]
   },
   "dependencies": {
-    "http": "http:",
-    "endpoint": "sys-process:endpointUrl"
+    "sms": "sms:",
+    "email": "email:"
   }
 }
