@@ -890,20 +890,20 @@
           {
             "name": "name",
             "type": "String",
-            "description": ""
+            "description": "The name of the command option."
           },
           {
             "name": "type",
             "type": "String",
-            "description": ""
+            "description": "The type of the command option, indicating the kind of value it holds."
           },
           {
             "name": "value",
             "type": "String",
-            "description": ""
+            "description": "The value assigned to the command option, which depends on the type of option."
           }
         ],
-        "description": ""
+        "description": "Defines an option for a Discord command, including its name, type, and value."
       },
       {
         "name": "Tests",
