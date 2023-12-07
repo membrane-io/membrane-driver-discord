@@ -215,10 +215,10 @@
                 "type": "String"
               }
             ],
-            "description": ""
+            "description": "Retrieve data for a single user by their Discord ID"
           }
         ],
-        "description": ""
+        "description": "Collection of Discord users"
       },
       {
         "name": "GuildCollection",
@@ -249,7 +249,7 @@
           {
             "name": "id",
             "type": "String",
-            "description": "The unique identifier of the guild."
+            "description": "Unique identifier for the Discord server."
           },
           {
             "name": "name",
@@ -257,43 +257,43 @@
             "hints": {
               "primary": true
             },
-            "description": "The name of the guild."
+            "description": "Name of the Discord server."
           },
           {
             "name": "icon",
             "type": "String",
-            "description": "The icon URL of the guild."
+            "description": "URL of the server's icon."
           },
           {
             "name": "owner",
             "type": "Boolean",
-            "description": "Indicates if the current user is the owner of the guild."
+            "description": "Flag indicating if the authenticated user owns the server."
           },
           {
             "name": "permissions",
             "type": "Int",
-            "description": "The permission bit set for the guild."
+            "description": "Bit set representing the server's permissions."
           },
           {
             "name": "features",
             "type": "List",
             "ofType": "String",
-            "description": "A list of features that are enabled for the guild."
+            "description": "List of special features enabled for the server."
           },
           {
             "name": "channels",
             "type": "ChannelCollection",
-            "description": "A collection of channels associated with the guild."
+            "description": "Collection of channels within the server."
           },
           {
             "name": "commands",
             "type": "CommandCollection",
-            "description": "A collection of custom commands created for the guild."
+            "description": "Collection of custom commands available in the server."
           },
           {
             "name": "members",
             "type": "MemberCollection",
-            "description": "A collection of members belonging to the guild."
+            "description": "Collection of members who are part of the server."
           }
         ],
         "actions": [
@@ -304,17 +304,17 @@
               {
                 "name": "name",
                 "type": "String",
-                "description": "The name for the new command."
+                "description": "Name assigned to the new command."
               },
               {
                 "name": "description",
                 "type": "String",
                 "optional": true,
-                "description": "A brief description of the new command."
+                "description": "Short description for the new command."
               },
               {
                 "name": "options",
-                "description": "Additional options for the command in JSON format.",
+                "description": "JSON-formatted options to customize the command.",
                 "type": "Json",
                 "optional": true
               },
@@ -322,20 +322,20 @@
                 "name": "type",
                 "type": "Int",
                 "optional": true,
-                "description": "The type of command to create, represented as an integer."
+                "description": "Integer indicating the type of the command to be created."
               }
             ],
-            "description": "Creates a new command for the guild."
+            "description": "Action to create a new custom command for the server."
           }
         ],
         "events": [
           {
             "name": "onSlashCommand",
             "type": "SlashCommand",
-            "description": "Triggered when a slash command is used within the guild."
+            "description": "Event emitted when a slash command is invoked in the server."
           }
         ],
-        "description": "Represents a Discord server (guild) with various properties and collections."
+        "description": "Type representing a Discord server, including its properties, channels, commands, and members."
       },
       {
         "name": "ChannelCollection",
@@ -370,10 +370,10 @@
               {
                 "name": "id",
                 "type": "String",
-                "description": "The unique identifier of the Discord message"
+                "description": "Identifier of the message to be retrieved from Discord."
               }
             ],
-            "description": "Retrieves a single message from the collection by ID"
+            "description": "Fetches a specific Discord message using its unique ID."
           },
           {
             "name": "items",
@@ -384,31 +384,31 @@
                 "name": "limit",
                 "type": "Int",
                 "optional": true,
-                "description": "The maximum number of messages to retrieve (optional)"
+                "description": "Limits the number of messages returned in the list. If not specified, a default limit is applied."
               },
               {
                 "name": "around",
                 "type": "String",
                 "optional": true,
-                "description": "The ID of a message to center the list around (optional)"
+                "description": "Centers the retrieved message list around the message with the specified ID."
               },
               {
                 "name": "before",
                 "type": "String",
                 "optional": true,
-                "description": "The ID of a message to limit the list to messages before it (optional)"
+                "description": "Retrieves messages posted before the message with the specified ID."
               },
               {
                 "name": "after",
                 "type": "String",
                 "optional": true,
-                "description": "The ID of a message to limit the list to messages after it (optional)"
+                "description": "Retrieves messages posted after the message with the specified ID."
               }
             ],
-            "description": "Retrieves a list of messages from the collection with various filtering options"
+            "description": "Obtains a list of Discord messages, offering several filter criteria such as message ID ranges and limits."
           }
         ],
-        "description": "Collection of Discord messages"
+        "description": "Collection of messages available in Discord."
       },
       {
         "name": "Channel",
@@ -633,7 +633,7 @@
           {
             "name": "user",
             "type": "User",
-            "description": "The User object representing the member's Discord account."
+            "description": "Discord user information associated with the member."
           },
           {
             "name": "nick",
@@ -641,13 +641,13 @@
               "primary": true
             },
             "type": "String",
-            "description": "The member's nickname within the server."
+            "description": "The member's chosen nickname within the Discord server."
           },
           {
             "name": "roles",
             "type": "List",
             "ofType": "String",
-            "description": "List of role identifiers the member has been assigned."
+            "description": "Identifiers for each role assigned to the member in the Discord server."
           },
           {
             "name": "joined_at",
@@ -655,40 +655,40 @@
               "primary": true
             },
             "type": "String",
-            "description": "The timestamp when the member joined the server."
+            "description": "Timestamp marking when the member first joined the Discord server."
           },
           {
             "name": "premium_since",
             "type": "String",
-            "description": "The timestamp when the member started boosting the server."
+            "description": "Timestamp indicating the start of the member's Nitro boost for the server."
           },
           {
             "name": "deaf",
             "type": "Boolean",
-            "description": "Indicates whether the member is server deafened."
+            "description": "States if the member is deafened by the server, preventing them from hearing others."
           },
           {
             "name": "mute",
             "type": "Boolean",
-            "description": "Indicates whether the member is server muted."
+            "description": "Indicates if the member is muted by the server, preventing them from speaking."
           },
           {
             "name": "pending",
             "type": "Boolean",
-            "description": "Indicates if the member is pending verification in servers that have Membership Screening enabled."
+            "description": "Reflects whether the member has yet to complete required Membership Screening before full participation."
           },
           {
             "name": "avatar",
             "type": "String",
-            "description": "The URL of the member's server-specific avatar."
+            "description": "Direct link to the member's custom avatar within the server, if set."
           },
           {
             "name": "flags",
             "type": "Int",
-            "description": "An integer representing the member's user flags or permissions."
+            "description": "Numerical value representing specific permissions or features available to the member."
           }
         ],
-        "description": "Represents a member of a Discord server with their details."
+        "description": "Represents the details of a Discord server member."
       },
       {
         "name": "User",
@@ -696,7 +696,7 @@
           {
             "name": "id",
             "type": "String",
-            "description": "The unique identifier for the Discord user."
+            "description": "The Discord user's unique identifier."
           },
           {
             "name": "username",
@@ -704,40 +704,40 @@
             "hints": {
               "primary": true
             },
-            "description": "The Discord user's handle, excluding the discriminator."
+            "description": "The username of the Discord user, not including the discriminator part."
           },
           {
             "name": "display_name",
             "type": "String",
-            "description": "The name displayed for the user within Discord."
+            "description": "The custom or server-specific nickname of the Discord user."
           },
           {
             "name": "avatar",
             "type": "String",
-            "description": "The URL of the user's avatar image."
+            "description": "URL linking to the Discord user's profile picture."
           },
           {
             "name": "avatar_decoration",
             "type": "String",
-            "description": "Decorative elements added to the user's avatar image."
+            "description": "Additional graphical elements applied to the user's avatar on Discord."
           },
           {
             "name": "discriminator",
             "type": "String",
-            "description": "The four-digit number used to uniquely identify users with the same username."
+            "description": "A unique four-digit tag associated with the user's username."
           },
           {
             "name": "public_flags",
             "type": "Int",
-            "description": "Flags associated with the user denoting certain user achievements."
+            "description": "Binary flags representing the achievements and statuses of the Discord user."
           },
           {
             "name": "bot",
             "type": "Boolean",
-            "description": "Indicates whether the user is a bot account."
+            "description": "A boolean indicating if the user is an automated bot account."
           }
         ],
-        "description": "Represents a Discord user."
+        "description": "Represents a user on the Discord platform, including their basic profile information."
       },
       {
         "name": "Reaction",
@@ -745,20 +745,20 @@
           {
             "name": "count",
             "type": "Int",
-            "description": ""
+            "description": "The number of times the specific emoji has been used as a reaction"
           },
           {
             "name": "me",
             "type": "Boolean",
-            "description": ""
+            "description": "Indicates whether the current user has reacted using the emoji"
           },
           {
             "name": "emoji",
             "type": "Emoji",
-            "description": ""
+            "description": "The emoji used to react to the message"
           }
         ],
-        "description": ""
+        "description": "Represents a reaction made to a message in Discord"
       },
       {
         "name": "Command",
@@ -817,46 +817,46 @@
           {
             "name": "id",
             "type": "String",
-            "description": "The unique identifier of the emoji."
+            "description": "Unique identifier for the emoji."
           },
           {
             "name": "user",
             "type": "User",
-            "description": "The user who created the emoji."
+            "description": "User who uploaded the emoji."
           },
           {
             "name": "name",
             "type": "String",
-            "description": "The name of the emoji."
+            "description": "Official name of the emoji."
           },
           {
             "name": "animated",
             "type": "Boolean",
-            "description": "Indicates whether the emoji is animated."
+            "description": "Flag indicating if the emoji has animation."
           },
           {
             "name": "available",
             "type": "Boolean",
-            "description": "Indicates whether the emoji is available for use."
+            "description": "Availability status of the emoji for use."
           },
           {
             "name": "require_colons",
             "type": "Boolean",
-            "description": "Specifies if the emoji requires colons to be used in messages."
+            "description": "Whether colons are required for the emoji's use."
           },
           {
             "name": "managed",
             "type": "Boolean",
-            "description": "Indicates if the emoji is managed by an integration or bot."
+            "description": "Indicates if an integration or bot manages the emoji."
           },
           {
             "name": "roles",
             "type": "List",
             "ofType": "String",
-            "description": "A list of role identifiers that can use this emoji."
+            "description": "List of roles with access to the emoji."
           }
         ],
-        "description": "Represents a custom emoji used in Discord messages."
+        "description": "Represents a custom Discord emoji."
       },
       {
         "name": "SlashCommand",
@@ -864,25 +864,25 @@
           {
             "name": "user",
             "type": "User",
-            "description": "The user who initiated the slash command."
+            "description": "The Discord user who executed the slash command."
           },
           {
             "name": "application_id",
             "type": "String",
-            "description": "The unique identifier of the application that the slash command is registered to."
+            "description": "ID of the Discord application to which the slash command is associated."
           },
           {
             "name": "token",
             "type": "String",
-            "description": "A token used to validate the interaction and respond to the slash command."
+            "description": "Authentication token for verifying and responding to the slash command interaction."
           },
           {
             "name": "options",
             "type": "String",
-            "description": "The arguments or parameters supplied by the user to the slash command."
+            "description": "Parameters provided by the user when invoking the slash command."
           }
         ],
-        "description": "Represents a discord slash command interaction."
+        "description": "Represents a Discord interaction where a user invokes a command via a special text trigger."
       },
       {
         "name": "CommandOption",
@@ -890,20 +890,20 @@
           {
             "name": "name",
             "type": "String",
-            "description": ""
+            "description": "The name of the command option."
           },
           {
             "name": "type",
             "type": "String",
-            "description": ""
+            "description": "The type of the command option."
           },
           {
             "name": "value",
             "type": "String",
-            "description": ""
+            "description": "The value of the command option."
           }
         ],
-        "description": ""
+        "description": "Represents an option provided in a Discord command."
       },
       {
         "name": "Tests",
@@ -911,25 +911,25 @@
           {
             "name": "testGetGuilds",
             "type": "Boolean",
-            "description": ""
+            "description": "Action to test the retrieval of guilds from Discord."
           },
           {
             "name": "ping",
             "type": "Boolean",
-            "description": ""
+            "description": "Action to test the Discord bot's responsiveness."
           },
           {
             "name": "testGetUsers",
             "type": "Boolean",
-            "description": ""
+            "description": "Action to test the retrieval of users from Discord."
           },
           {
             "name": "testGetChannels",
             "type": "Boolean",
-            "description": ""
+            "description": "Action to test the retrieval of channels from Discord."
           }
         ],
-        "description": ""
+        "description": "Type used for executing test actions related to Discord functionality."
       }
     ]
   },
