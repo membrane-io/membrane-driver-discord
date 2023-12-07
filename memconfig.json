@@ -33,17 +33,17 @@
           {
             "name": "guilds",
             "type": "GuildCollection",
-            "description": ""
+            "description": "Collection of Discord guilds"
           },
           {
             "name": "me",
             "type": "User",
-            "description": ""
+            "description": "Details about the authenticated user"
           },
           {
             "name": "users",
             "type": "UserCollection",
-            "description": ""
+            "description": "Collection of Discord users"
           },
           {
             "name": "parse",
@@ -65,17 +65,17 @@
                 "type": "String"
               }
             ],
-            "description": ""
+            "description": "List of parsed items"
           },
           {
             "name": "status",
             "type": "String",
-            "description": ""
+            "description": "Status of the Discord driver"
           },
           {
             "name": "tests",
             "type": "Tests",
-            "description": ""
+            "description": "Test cases for the Discord driver"
           }
         ],
         "actions": [
@@ -104,7 +104,7 @@
                 "optional": true
               }
             ],
-            "description": ""
+            "description": "Configure the Discord driver with client credentials"
           },
           {
             "name": "followUpWebhook",
@@ -123,10 +123,10 @@
                 "type": "Json"
               }
             ],
-            "description": ""
+            "description": "Send a follow-up webhook message to Discord"
           }
         ],
-        "description": ""
+        "description": "The root type for the Discord driver"
       },
       {
         "name": "MemberCollection",
