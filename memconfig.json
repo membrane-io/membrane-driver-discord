@@ -769,47 +769,48 @@
             "hints": {
               "primary": true
             },
-            "description": ""
+            "description": "The unique name of the command."
           },
           {
             "name": "description",
             "type": "String",
-            "description": ""
+            "description": "A brief explanation of what the command does."
           },
           {
             "name": "default_member_permissions",
             "type": "String",
-            "description": ""
+            "description": "Permissions required for a server member to use the command."
           },
           {
             "name": "default_permission",
             "type": "Boolean",
-            "description": ""
+            "description": "Indicates whether the command is enabled by default for everyone."
           },
           {
             "name": "type",
             "type": "Int",
-            "description": ""
+            "description": "The type of command, represented as an integer."
           },
           {
             "name": "nsfw",
             "type": "Boolean",
-            "description": ""
+            "description": "Flag indicating whether the command is Not Safe For Work."
           },
           {
             "name": "options",
             "type": "List",
             "ofType": "String",
-            "description": ""
+            "description": "A list of options for the command."
           }
         ],
         "actions": [
           {
             "name": "delete",
-            "type": "Void"
+            "type": "Void",
+            "description": "Deletes the command from the Discord environment."
           }
         ],
-        "description": ""
+        "description": "Represents a command in the Discord environment."
       },
       {
         "name": "Emoji",
