@@ -416,17 +416,17 @@
           {
             "name": "id",
             "type": "String",
-            "description": ""
+            "description": "The unique identifier of the channel."
           },
           {
             "name": "last_message_id",
             "type": "String",
-            "description": ""
+            "description": "The unique identifier of the last message sent in the channel."
           },
           {
             "name": "rate_limit_per_user",
             "type": "Int",
-            "description": ""
+            "description": "The rate limit for users in the channel."
           },
           {
             "name": "name",
@@ -434,53 +434,53 @@
             "hints": {
               "primary": true
             },
-            "description": ""
+            "description": "The name of the channel."
           },
           {
             "name": "type",
             "type": "Int",
-            "description": ""
+            "description": "The type of the channel."
           },
           {
             "name": "position",
             "type": "Int",
-            "description": ""
+            "description": "The position of the channel."
           },
           {
             "name": "flags",
             "type": "Int",
-            "description": ""
+            "description": "The flags associated with the channel."
           },
           {
             "name": "nsfw",
             "type": "Boolean",
-            "description": ""
+            "description": "Indicates if the channel is NSFW (Not Safe For Work)."
           },
           {
             "name": "parend_id",
             "type": "String",
-            "description": ""
+            "description": "The parent channel ID, if the channel is a sub-channel."
           },
           {
             "name": "topic",
             "type": "String",
-            "description": ""
+            "description": "The topic of the channel."
           },
           {
             "name": "guild_id",
             "type": "String",
-            "description": ""
+            "description": "The unique identifier of the guild to which the channel belongs."
           },
           {
             "name": "permissions_overwrites",
             "type": "List",
             "ofType": "String",
-            "description": ""
+            "description": "The list of permission overwrites for the channel."
           },
           {
             "name": "messages",
             "type": "MessageCollection",
-            "description": ""
+            "description": "A collection of messages sent in the channel."
           }
         ],
         "actions": [
@@ -490,48 +490,50 @@
             "params": [
               {
                 "name": "content",
-                "description": "",
+                "description": "The content of the message to send.",
                 "type": "String"
               },
               {
                 "name": "payload_json",
-                "description": "",
+                "description": "The payload of the message in JSON format.",
                 "type": "String",
                 "optional": true
               },
               {
                 "name": "tts",
                 "type": "Boolean",
-                "optional": true
+                "optional": true,
+                "description": "Enable TTS (Text-to-Speech) for the message."
               },
               {
                 "name": "flags",
                 "type": "Int",
-                "optional": true
+                "optional": true,
+                "description": "The flags to be applied to the message."
               },
               {
                 "name": "sticker_ids",
-                "description": "",
+                "description": "The IDs of the stickers to be sent with the message.",
                 "type": "String",
                 "optional": true
               },
               {
                 "name": "components",
-                "description": "",
+                "description": "The components to be included in the message.",
                 "type": "String",
                 "optional": true
               },
               {
                 "name": "embeds",
-                "description": "",
+                "description": "The embeds to be included in the message.",
                 "type": "String",
                 "optional": true
               }
             ],
-            "description": ""
+            "description": "Send a message to the channel."
           }
         ],
-        "description": ""
+        "description": "Represents a Discord channel."
       },
       {
         "name": "Message",
