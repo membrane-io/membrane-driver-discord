@@ -486,7 +486,7 @@
         "actions": [
           {
             "name": "sendMessage",
-            "type": "Void",
+            "type": "Json",
             "params": [
               {
                 "name": "content",
@@ -528,9 +528,20 @@
                 "description": "The embeds to be included in the message.",
                 "type": "String",
                 "optional": true
+              },
+              {
+                "name": "message_reference",
+                "type": "Json",
+                "optional": true
+              },
+              {
+                "name": "allowed_mentions",
+                "type": "Json",
+                "optional": true
               }
             ],
-            "description": "Send a message to the channel."
+            "description": "Send a message to the channel.",
+            "ofType": "Json"
           }
         ],
         "description": "Represents a Discord channel."
@@ -625,9 +636,32 @@
             "type": "List",
             "ofType": "Reaction",
             "description": "List of reactions added to the message."
+          },
+          {
+            "name": "reactionsByEmote",
+            "type": "List",
+            "params": [
+              {
+                "name": "emote_str",
+                "type": "String"
+              }
+            ],
+            "ofType": "User"
           }
         ],
-        "description": "Represents a message posted in a Discord channel."
+        "description": "Represents a message posted in a Discord channel.",
+        "actions": [
+          {
+            "name": "postReaction",
+            "type": "Void",
+            "params": [
+              {
+                "name": "emote_str",
+                "type": "String"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "Member",
