@@ -241,15 +241,18 @@ export const Channel = {
   messages: () => ({}),
   sendMessage: async (args, { self }) => {
     const { id } = self.$argsAt(root.guilds.one.channels.one);
+    const msg = {
+      content: args.content,
+      components: JSON.parse(args.components || "[]"),
+      embeds: JSON.parse(args.embeds || "[]"),
+    };
+    if (args.message_reference) msg["message_reference"] = args.message_reference;
+    if (args.allowed_mentions) msg["allowed_mentions"] = args.allowed_mentions;
     const res = await api(
       "POST",
       `channels/${id}/messages`,
       null,
-      JSON.stringify({
-        content: args.content,
-        components: JSON.parse(args.components || "[]"),
-        embeds: JSON.parse(args.embeds || "[]"),
-      })
+      JSON.stringify(msg)
     );
     return await res.json();
   },
@@ -264,6 +267,26 @@ export const Message = {
       .channels.one({ id: channelId })
       .messages.one({ id: obj.id });
   },
+  reactionsByEmote: async (args, { self }) => {
+    const { id: channelId } = self.$argsAt(root.guilds.one.channels.one);
+    const { id: messageId } = self.$argsAt(root.guilds.one.channels.one.messages.one);
+    const emoteStr = args.emote_str;
+    const res = await api(
+      "GET",
+      `channels/${channelId}/messages/${messageId}/reactions/${emoteStr}`,
+      null);
+    return await res.json();
+  },
+  postReaction: async (args, { self }) => {
+    const { id: channelId } = self.$argsAt(root.guilds.one.channels.one);
+    const { id: messageId } = self.$argsAt(root.guilds.one.channels.one.messages.one);
+    const emoteStr = args.emote_str;
+    const res = await api(
+      "PUT",
+      `channels/${channelId}/messages/${messageId}/reactions/${emoteStr}/@me`,
+      null
+    );
+  }
 };
 
 export const User = {
@@ -278,6 +301,32 @@ export const Member = {
     return root.guilds.one({ id }).members.one({ id: obj.user.id });
   },
 };
+
+export const Reaction = {
+  gref(_, { obj, self}) {
+    const { id: guildId } = self.$argsAt(root.guilds.one);
+    const { id: channelId } = self.$argsAt(root.guilds.one.channels.one);
+    const { id: messageId } = self.$argsAt(root.guilds.one.channels.one.messages.one)
+    const emojiUri = encodeURIComponent(obj.emoji.name);
+    return root.guilds
+      .one({ id: guildId })
+      .channels.one({ id: channelId })
+      .messages.one({ id: messageId })
+      .reactionsByEmote({emote_str: emojiUri});
+  }
+}
+
+export const Emoji = {
+  gref(_, { obj, self }) {
+    const { id: guildId } = self.$argsAt(root.guilds.one);
+    const { id: channelId } = self.$argsAt(root.guilds.one.channels.one);
+    const { id: messageId } = self.$argsAt(root.guilds.one.channels.one.messages.one)
+    return root.guilds
+      .one({ id: guildId })
+      .channels.one({ id: channelId })
+      .messages.one({ id: messageId });
+  }
+}
 
 export async function endpoint({ path, query, headers, method, body }) {
   switch (path) {
