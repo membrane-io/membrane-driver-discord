@@ -6,8 +6,8 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "client-oauth2": "git+https://github.com/juancampa/js-client-oauth2.git",
-    "tweetnacl": "git+https://github.com/aranajhonny/tweetnacl-js.git",
+    "client-oauth2": "git+https://github.com/membrane-io/js-client-oauth2.git",
+    "tweetnacl": "git+https://github.com/membrane-io/tweetnacl-js.git",
     "random-bytes-js": "latest"
   }
 }
